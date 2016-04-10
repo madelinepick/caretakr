@@ -1,8 +1,85 @@
+html,
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    height: 100%;
+}
+body {
+  font: 14px 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+
+}
+.hero{
+  background-image: url('http://i.imgur.com/NyPBTKh.jpg');
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+  display: table;
+}
+.hero > h1 {
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 90px;
+  text-transform: uppercase;
+}
+.hero > section > button, form > input[type='submit'] {
+  border: 1px solid white;
+  background-color: Transparent;
+  color: white;
+  padding: 10px 20px 10px 20px;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  margin-left: 20px;
+}
+.hero > section{
+  position: absolute;
+  top: 20px;
+  right: 50px;
+}
+.signup{
+  background-color: rgb(172, 201, 188);
+  padding: 30px 0px;
+}
+.signup > form{
+  background-color: white;
+  width: 20%;
+  padding: 40px 40px;
+  margin: 0px 40%;
+}
+input[type="text"]:focus, input[type="password"]:focus {
+    color: #3d3d3d;
+    border-bottom: 1px solid #333;
+    width: 120px;
+    outline: none;
 }
 
-a {
-  color: #00B7FF;
+input[type="text"], input[type="password"] {
+  background-color: white;
+  border: 0 none;
+  border-bottom: 1px solid #333;
+  color: #737373;
+  width:100px;
+  padding: 6px 0px;
+  margin:3px 0px 15px 0px;
+}
+
+input[type="text"], input[type="password"] {
+    -webkit-transition: all 1s ease 0s;
+    -moz-transition: all 1s ease 0s;
+    -o-transition: all 1s ease 0s;
+    transition: all 1s ease 0s;
+}
+form > input[type='submit']{
+  border-color: #333;
+  color: #333;
+  margin-left: 0px;
+}
+form >label{
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
 }
