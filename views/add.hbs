@@ -1,0 +1,61 @@
+<nav>
+  <img class="applogo" src="/images/CaretakrWhite.png" alt="" />
+
+  <div>
+    <div class="circleimage">
+      <!-- eventually user image goes here  -->
+      <img src="http://image.shutterstock.com/z/stock-photo-young-man-making-a-funny-face-49678489.jpg" alt="" />
+    </div>
+    <div class="navbar">
+      <a href="/settings">Settings</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<div class="left">
+  <div class="leftnav household">
+    <h3>Your Household</h3>
+  </div>
+  <div class="leftnav">
+    <!-- Eventually users name as an hbs param goes below -->
+    <h2 class='dependentsId'>John</h2>
+  </div>
+  <div class="leftnav">
+    <h2 class='dependentsId'>Jane</h2>
+  </div>
+  <div class="leftnav">
+    <h2 class='dependentsId'>Scruffles</h2>
+    <i class="fa fa-paw fa-2x"></i>
+  </div>
+  <div class="leftnav new">
+    <i class="fa fa-plus fa-lg"></i>
+    <h2 class='dependentsId'><a href="/user/new">Add new dependent</a></h2>
+
+  </div>
+</div>
+
+<div class="right">
+  <div class="row">
+    <form class="add" action="username/add" method="post">
+      <h3>Add a new dependent</h3>
+      <input type="radio" name="child" value="child">
+      <label for="child">Child</label><br>
+      <input type="radio" name="pet" value="pet">
+      <label for="pet">Pet</label><br>
+      <label for="name">Name</label><br>
+      <input type="text" name="name" value=""><br>
+      <label for="birthdate">Birthdate</label><br>
+      <input type="text" name="birthdate" value=""><br>
+      <label for="">Category</label><br>
+      <select name="type">
+        <option value="allergies">Allergies</option>
+        <option value="food">Food Instructions</option>
+        <option value="bedtime">Bed Time Rules</option>
+        <option value="tv">TV Rules</option>
+      </select><br>
+      <textarea name="instructions" rows="8" cols="40"></textarea><br>
+      <input type="submit" value="Add">
+    </form>
+  </div>
+</div>

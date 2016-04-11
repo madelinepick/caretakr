@@ -42,13 +42,17 @@ body {
 }
 .signup{
   background-color: #B2DC80;
-  padding: 30px 0px;
+  padding: 20px 5%;
+  flex: 0 0 50%;
 }
 .signup > form{
   background-color: white;
-  width: 20%;
-  padding: 40px 40px;
-  margin: 0px 40%;
+  width: 60%;
+  padding: 15px 15px;
+  margin: 0px 0px;
+}
+.floatright{
+  float:right;
 }
 input[type="text"]:focus, input[type="password"]:focus {
     color: #333;
@@ -85,6 +89,7 @@ form >label{
 nav{
   background-color: #B2DC80;
   padding: 25px 0px;
+  height: 130px;
 }
 nav > h1{
   margin: 0px 15px;
@@ -146,7 +151,7 @@ div > .navbar > a{
 .leftnav > h2{
   font-family: 'Lato', sans-serif;
   font-weight: 300;
-  color: #333;
+  color: #ffffff;
   padding: 30px 10px;
   text-align: center;
   font-size: 20px;
@@ -168,6 +173,9 @@ div > .navbar > a{
   color: #333;
   padding-left: 5%;
 }
+.row{
+  display: flex;
+}
 .right > .row{
   margin-left: 0px;
   margin-right: 0px;
@@ -175,6 +183,7 @@ div > .navbar > a{
 }
 h2 > a{
   color: white;
+  font-size: 16px;
 }
 .leftnav > h2{
   display: inline;
@@ -204,4 +213,20 @@ i{
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
+  width: 500px;
+  height: auto;
+}
+.applogo{
+  width: 140px;
+  height: auto;
+  margin-left: 30px;
+}
+.new{
+  background-color: #B2DC80;
+}
+.new > i {
+  color: white;
+}
+.add{
+  margin-left: 5%;
 }

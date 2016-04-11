@@ -6,4 +6,9 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+router.get('/:user_id/public', function(req, res, next){
+  res.render('public');
+
+})
+
 module.exports = router;
