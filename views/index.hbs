@@ -7,7 +7,7 @@
 </div>
 
 <div class="signup">
-  <form action="/signup" method="post">
+  <form action="auth/signup" method="post">
     <label for="username">Username</label><br>
     <input class="formputs" type="text" name="username"><br>
     <label for="password">Password</label><br>
@@ -15,5 +15,13 @@
     <label for="passwordcheck">Re-type Password</label><br>
     <input class="formputs password" type="password" name="passwordcheck"><br>
     <input type="submit" value="Sign Up">
+  </form>
+
+  <form action="/auth/login" method="post">
+    <label for="username">Username</label><br>
+    <input class="formputs" type="text" name="username"><br>
+    <label for="password">Password</label><br>
+    <input class="formputs password" type="password" name="password"><br>
+    <input type="submit" value="Log in">
   </form>
 </div>
