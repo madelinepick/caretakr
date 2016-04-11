@@ -9,7 +9,6 @@ router.post('/login', function(req, res, next) {
   .where('user_name', '=', req.body.username.toLowerCase())
   .first()
   .then(function(response){
-    console.log(response);
     if(response && bcrypt.compareSync(req.body.password, response.bcrypt_hash)){
       req.session.user = response.user_name;
       res.redirect('/admin/1/home');
