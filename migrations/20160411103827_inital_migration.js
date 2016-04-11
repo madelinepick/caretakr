@@ -7,7 +7,6 @@ exports.up = function(knex, Promise) {
     table.string('bcrypt_hash');
     table.string('picture_url');
     table.string('google_id');
-    table.integer('dependents_id')
 
 
   }).createTable('dependents', function(table){
