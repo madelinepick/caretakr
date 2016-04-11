@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var knex = require('knex');
 
 router.get('/:user_id/add', function(req, res, next){
   res.render('add', {user_id: req.params.user_id});
