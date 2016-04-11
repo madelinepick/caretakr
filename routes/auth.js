@@ -28,6 +28,10 @@ router.post('/signup', function(req, res, next) {
   })
 });
 
+router.get('/logout', function(req,res,next){
+  req.session.user = null;
+  res.redirect('/');
+});
 //Get rid of this later or rather GIT rid lol!
 
 router.get('/google',
