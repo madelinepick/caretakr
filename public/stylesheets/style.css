@@ -41,7 +41,7 @@ body {
   right: 50px;
 }
 .signup{
-  background-color: rgb(172, 201, 188);
+  background-color: #B2DC80;
   padding: 30px 0px;
 }
 .signup > form{
@@ -51,7 +51,7 @@ body {
   margin: 0px 40%;
 }
 input[type="text"]:focus, input[type="password"]:focus {
-    color: #3d3d3d;
+    color: #333;
     border-bottom: 1px solid #333;
     width: 120px;
     outline: none;
@@ -83,7 +83,7 @@ form >label{
   font-weight: 300;
 }
 nav{
-  background-color: rgb(172, 201, 188);
+  background-color: #B2DC80;
   padding: 25px 0px;
 }
 nav > h1{
@@ -127,7 +127,7 @@ div > .navbar > a{
 .left{
   width: 20%;
   position: fixed;
-  background-color: rgb(232, 137, 59);
+  background-color: #FDA63A;
   height: 100%;
   border-right: 1px solid #333;
 
@@ -196,6 +196,12 @@ i{
   margin-left: 66%;
 }
 .right > .row > section > button{
-  background-color: rgb(232, 137, 59);
+  background-color: #FDA63A;
   border: none;
+}
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
 }
