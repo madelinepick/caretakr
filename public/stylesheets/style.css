@@ -42,13 +42,17 @@ body {
 }
 .signup{
   background-color: #B2DC80;
-  padding: 30px 0px;
+  padding: 20px 5%;
+  flex: 0 0 50%;
 }
 .signup > form{
   background-color: white;
-  width: 20%;
-  padding: 40px 40px;
-  margin: 0px 40%;
+  width: 60%;
+  padding: 15px 15px;
+  margin: 0px 0px;
+}
+.floatright{
+  float:right;
 }
 input[type="text"]:focus, input[type="password"]:focus {
     color: #333;
@@ -167,6 +171,9 @@ div > .navbar > a{
   font-weight: 300;
   color: #333;
   padding-left: 5%;
+}
+.row{
+  display: flex;
 }
 .right > .row{
   margin-left: 0px;
