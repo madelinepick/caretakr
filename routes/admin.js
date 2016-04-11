@@ -26,7 +26,7 @@ router.get('/:user_id/update', function(req, res, next){
 });
 
 router.get('/:user_id/home', function(req, res, next){
-  res.render('home');
+  res.render('home', {user_id: req.params.user_id});
 });
 
 
