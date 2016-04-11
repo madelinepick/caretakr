@@ -6,28 +6,30 @@ exports.up = function(knex, Promise) {
     table.string('phone_number');
     table.string('bcrypt_hash');
     table.string('picture_url');
-    table.integer('google_id');
+    table.string('google_id');
     table.integer('dependents_id')
 
 
   }).createTable('dependents', function(table){
     table.increments('dependents_id');
     table.string('dependent_name');
-    table.string('being-type');
+    table.string('being_type');
     table.string('picture_url');
-    table.integer('rules_id');
-    table.integer('contact_info_id')
+    table.integer('contact_info_id');
+    table.integer('user_id')
 
   }).createTable('rules', function(table){
     table.increments('rules_id');
     table.string('title');
     table.string('body');
+    table.integer('dependents_id')
 
 
-  }).createTable('contact_info_id', function(table){
+  }).createTable('contact_info', function(table){
     table.increments('contact_info_id');
     table.string('dependent_friend_number');
-    table.string('doctor_number')
+    table.string('doctor_number');
+    table.integer('dependents_id')
   })
 
 };
@@ -37,5 +39,5 @@ exports.down = function(knex, Promise) {
   .dropTable('users')
   .dropTable('dependents')
   .dropTable('rules')
-  .dropTable('contact_info_id')
+  .dropTable('contact_info')
 };
