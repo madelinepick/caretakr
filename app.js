@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var GoogleStrategy = require('passport-google-oauth2').Strategy
 var passport = require('passport');
 var cookieSession = require('cookie-session');
+var dotenv = require('dotenv');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
