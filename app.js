@@ -60,7 +60,7 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.use(function(req, res, next) {
-    console.log(req.user);
+    // console.log(req.user);
     res.locals.user = req.user
     next()
 })
