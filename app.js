@@ -51,6 +51,7 @@ passport.use(new GoogleStrategy({
 
 app.use('/auth', auth);
 
+
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
@@ -65,8 +66,9 @@ app.use(function(req, res, next) {
     next()
 })
 
+app.use('/admin', admin);
+
 app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
