@@ -10,8 +10,8 @@ var cookieSession = require('cookie-session');
 var dotenv = require('dotenv');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var auth = require('./routes/auth');
+var admin = require('./routes/admin');
 
 var app = express();
 require('dotenv').load()
