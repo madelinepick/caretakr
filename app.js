@@ -66,7 +66,16 @@ app.use(function(req, res, next) {
     next()
 })
 
-app.use('/admin', admin);
+function authorizedUser(req, res, next) {
+  console.log(req.session.user);
+  if (req.session.user) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+}
+
+app.use('/admin', authorizedUser, admin);
 
 app.use('/', routes);
 
