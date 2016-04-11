@@ -3,25 +3,24 @@
     <button>Login</button>
     <button>Sign Up</button>
   </section>
-  <img class="logo" src="/images/CaretakrLogoWhite.png" alt="" />
+  <img class="logo" src="/images/CaretakrWhite.png" alt="" />
 </div>
 
-<div class="container">
-  <div class="row">
+<div class="row">
 
-    <div class="signup col-med-5">
-      <form action="auth/signup" method="post">
-        <label for="username">Username</label><br>
-        <input class="formputs" type="text" name="username"><br>
-        <label for="password">Password</label><br>
-        <input class="formputs password" type="password" name="password"><br>
-        <label for="passwordcheck">Re-type Password</label><br>
-        <input class="formputs password" type="password" name="passwordcheck"><br>
-        <input type="submit" value="Sign Up">
-      </form>
-    </div>
+  <div class="signup">
+    <form class='floatright' action="auth/signup" method="post">
+      <label for="username">Username</label><br>
+      <input class="formputs" type="text" name="username"><br>
+      <label for="password">Password</label><br>
+      <input class="formputs password" type="password" name="password"><br>
+      <label for="passwordcheck">Re-type Password</label><br>
+      <input class="formputs password" type="password" name="passwordcheck"><br>
+      <input type="submit" value="Sign Up">
+    </form>
+  </div>
 
-    <div class="signup login col-med-5">
+    <div class="signup">
       <form action="/auth/login" method="post">
         <label for="username">Username</label><br>
         <input class="formputs" type="text" name="username"><br>
@@ -33,4 +32,3 @@
     </div>
 
   </div>
-</div>
