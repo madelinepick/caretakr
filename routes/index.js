@@ -11,19 +11,6 @@ router.get('/', function(req, res, next) {
 /*Public Route.*/
 
 router.get('/:user_id/public', function(req, res, next){
-  // var dataArr = []
-  //
-  // knex('dependents')
-  //   .where()
-  // })
-  //
-  // for (var i = 0; i < ; i++) {
-  //   console.log(i);
-  // }
-
-
-
-
   return knex('dependents')
   .where({user_id: req.params.user_id})
   .first()
