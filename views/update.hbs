@@ -53,13 +53,14 @@
       <input type="text" name="dependent_name" value="{{dependent_data.dependent_name}}"><br>
       <label for="picture_url">Link to a photo (ex:https://myphoto.com)</label><br>
       <input type="text" name="picture_url" value="{{dependent_data.picture_url}}"><br>
-{{#rules_data}}
-
+{{#dependent_data.title}}
       <label for="section1name">Rule title:</label>
-      <input type="text" name="section1name" value="{{rules_data.title}}"><br>
+      <input type="text" name="section1name" value="{{this}}"><br>
+      {{/dependent_data.title}}
+      {{#dependent_data.body}}
       <label for="section1">Content</label><br>
-      <textarea name="section1" rows="4" cols="40" value="{{rules_data.body}}"></textarea><br>
-{{/rules_data}}
+      <textarea name="section1" rows="4" cols="40" value="{{this}}"></textarea><br>
+{{/dependent_data.body}}
 
       <!-- <label for="section2name">Section Two Name:</label>
       <input type="text" name="section2name" value=""><br>

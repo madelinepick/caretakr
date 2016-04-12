@@ -9,31 +9,24 @@ router.get('/', function(req, res, next) {
 });
 
 /*Public Route.*/
-
 router.get('/:user_id/public/:dependents_id', function(req, res, next){
   return knex('dependents')
   .where({user_id: req.params.user_id})
   .then(function(data) {
-    return knex('rules')
+    return knex('dependents')
     .where({dependents_id: req.params.dependents_id})
-    .then(function(rulesData){
-      return knex('dependents')
-      .where({dependents_id: req.params.dependents_id})
-      .first()
-      .then(function(dependent_name_data){
-  console.log(dependent_name_data)
-      res.render('public', {
+    .first()
+    .then(function(rules_data){
 
-        name: dependent_name_data,
+      res.render('public', {
         dependents: data,
-        rules: rulesData,
+        rules: rules_data,
         user_id: req.params.user_id
       })
-      });
     })
-  })
-  res.render('public');
+  });
 })
+
 
 
 module.exports = router;
