@@ -33,15 +33,6 @@ router.get('/logout', function(req,res,next){
 });
 //Get rid of this later or rather GIT rid lol!
 
-router.get('/google',
-  passport.authenticate('google', { scope: ['email', 'profile'] }));
-
-router.get('/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Authenticated successfully
-    res.redirect('/');
-  });
 
 router.get('/facebook',
   passport.authenticate('facebook', { scope: ['email', 'public_profile', ] }));
