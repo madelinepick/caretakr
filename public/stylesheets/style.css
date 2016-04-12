@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .hero{
   background-image: url('http://i.imgur.com/NyPBTKh.jpg');
   height: 400px;
@@ -56,7 +57,7 @@ body {
 }
 input[type="text"]:focus, input[type="password"]:focus {
     color: #333;
-    border-bottom: 1px solid #333;
+    border: 1px solid #333;
     width: 120px;
     outline: none;
 }
@@ -64,10 +65,10 @@ input[type="text"]:focus, input[type="password"]:focus {
 input[type="text"], input[type="password"] {
   background-color: white;
   border: 0 none;
-  border-bottom: 1px solid #333;
+  border: 1px solid #333;
   color: #737373;
   width:100px;
-  padding: 6px 0px;
+  padding: 0px 0px;
   margin:3px 0px 15px 0px;
 }
 
@@ -84,7 +85,7 @@ form > input[type='submit'], .row > section > button{
 }
 form >label{
   font-family: 'Lato', sans-serif;
-  font-weight: 300;
+  font-weight: 500;
 }
 nav{
   background-color: #B2DC80;
@@ -142,7 +143,7 @@ div > .navbar > a{
   right: 0;
   z-index: 99;
   width:80%;
-  padding-top: 30px;
+  padding: 30px 0px;
 }
 .leftnav{
   padding: 20px;
@@ -229,4 +230,10 @@ i{
 }
 .add{
   margin-left: 5%;
+}
+.smaller{
+  font-size: 12px;
+}
+textarea{
+  margin-bottom: 20px;
 }
