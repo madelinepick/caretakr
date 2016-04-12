@@ -43,4 +43,31 @@ router.get('/google/callback',
     res.redirect('/');
   });
 
+router.get('/facebook',
+  passport.authenticate('facebook'));
+
+router.get('/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+
+router.get('/twitter/callback',
+  passport.authenticate('twitter', {
+      failureRedirect: '/login'
+  }),
+  function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect('/');
+  });
+
+router.get('/twitter',
+    passport.authenticate('twitter'),
+    function(req, res) {
+
+        // The request will be redirected to LinkedIn for authentication, so this
+        // function will not be called.
+    });
+
 module.exports = router;

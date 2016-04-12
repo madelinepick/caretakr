@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var GoogleStrategy = require('passport-google-oauth2').Strategy
+var TwitterStrategy = require('passport-twitter').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 var passport = require('passport');
 var cookieSession = require('cookie-session');
 var dotenv = require('dotenv');
@@ -47,6 +49,24 @@ passport.use(new GoogleStrategy({
     function(request, accessToken, refreshToken, profile, done) {
         return done(null, profile);
     }
+));
+
+passport.use(new TwitterStrategy({
+    consumerKey: process.env.TWITTER_CONSUMER_KEY,
+    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+    callbackURL: process.env.HOST + "/auth/twitter/callback"
+}, function(token, tokenSecret, profile, cb) {
+    return cb(null, profile);
+}));
+
+passport.use(new FacebookStrategy({
+    clientID: process.env.FACEBOOK_APP_ID,
+    clientSecret: process.env.FACEBOOK_APP_SECRET,
+    callbackURL: process.env.HOST + "/auth/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+      return cb(null, profile);
+  }
 ));
 
 app.use('/auth', auth);
