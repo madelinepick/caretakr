@@ -74,6 +74,10 @@
       <label for="section4">Content</label><br>
       <textarea name="section4" rows="4" cols="40"></textarea><br> -->
       <input type="submit" value="Update">
+
+    </form>
+    <form class="add" action="/admin/{{user_id}}/delete/{{dependent_data.dependents_id}}" method="post">
+        <input type="submit" value="Delete {{dependent_data.dependent_name}}" id="delete_button">
     </form>
   </div>
 </div>
