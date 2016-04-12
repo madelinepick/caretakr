@@ -1,0 +1,59 @@
+<nav>
+  <img class="applogo" src="/images/CaretakrWhite.png" alt="" />
+
+  <div>
+    <div class="circleimage">
+      <!-- eventually user image goes here  -->
+      <img src="http://image.shutterstock.com/z/stock-photo-young-man-making-a-funny-face-49678489.jpg" alt="" />
+    </div>
+    <div class="navbar">
+      <a href="/settings">Settings</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<div class="left">
+  <div class="leftnav household">
+    <h3>Your Household</h3>
+  </div>
+  <div class="leftnav">
+    <!-- Eventually users name as an hbs param goes below -->
+    <h2 class='dependentsId'>John</h2>
+  </div>
+  <div class="leftnav">
+    <h2 class='dependentsId'>Jane</h2>
+  </div>
+  <div class="leftnav">
+    <h2 class='dependentsId'>Scruffles</h2>
+    <i class="fa fa-paw fa-2x"></i>
+  </div>
+  <div class="leftnav new">
+    <i class="fa fa-plus fa-lg"></i>
+    <h2 class='dependentsId'><a href="/{{user_id}}/add">Add new dependent</a></h2>
+  </div>
+  <div class="leftnav new">
+    <i class="fa fa-plus fa-lg"></i>
+    <h2 class='dependentsId'><a href="{{user_id}}/contact">Add/update contacts</a></h2>
+  </div>
+</div>
+
+<div class="right">
+  <div class="row">
+    <form class="add" action="/{{user_id}}/update/{{dependent_id}}" method="post">
+      <h3>Contact Info</h3>
+      <label for="cellphone">My Cell Phone</label><br>
+      <input type="text" name="cellphone" value=""><br>
+      <label for="email">My Email</label><br>
+      <input type="text" name="email" value=""><br>
+      <label for="doctor">Doctor's Phone (child)</label><br>
+      <input type="text" name="doctor" value=""><br>
+      <label for="doctor">Doctor's Phone (pet)</label><br>
+      <input type="text" name="doctor" value=""><br>
+      <label for="Neighbor's Phone">Neighbor's Phone</label><br>
+      <input type="text" name="Neighbor's Phone" value=""><br>
+
+      <input type="submit" value="Update">
+    </form>
+  </div>
+</div>
