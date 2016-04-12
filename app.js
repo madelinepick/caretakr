@@ -52,19 +52,20 @@ passport.use(new GoogleStrategy({
     }
 ));
 
-// passport.use(new TwitterStrategy({
-//     consumerKey: process.env.TWITTER_CONSUMER_KEY,
-//     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-//     callbackURL: process.env.HOST + "/auth/twitter/callback"
-// }, function(token, tokenSecret, profile, cb) {
-//     return cb(null, profile);
-// }));
+passport.use(new TwitterStrategy({
+    consumerKey: process.env.TWITTER_CONSUMER_KEY,
+    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+    callbackURL: process.env.HOST + "/auth/twitter/callback"
+}, function(token, tokenSecret, profile, cb) {
+    console.log(profile);
+    return cb(null, profile);
+}));
 
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
     callbackURL: process.env.HOST + "/auth/facebook/callback",
-    profileFields: ['email', 'picture', 'name', 'profile']
+    profileFields: ['email', 'picture', 'name']
   },
   function(accessToken, refreshToken, profile, cb) {
     console.log(profile);
