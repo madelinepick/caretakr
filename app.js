@@ -47,7 +47,6 @@ passport.use(new GoogleStrategy({
         passReqToCallback: true
     },
     function(request, accessToken, refreshToken, profile, done) {
-      console.log(profile);
         return done(null, profile);
     }
 ));
@@ -57,7 +56,6 @@ passport.use(new TwitterStrategy({
     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
     callbackURL: process.env.HOST + "/auth/twitter/callback"
 }, function(token, tokenSecret, profile, cb) {
-    console.log(profile);
     return cb(null, profile);
 }));
 
@@ -68,7 +66,6 @@ passport.use(new FacebookStrategy({
     profileFields: ['email', 'picture', 'name']
   },
   function(accessToken, refreshToken, profile, cb) {
-    console.log(profile);
       return cb(null, profile);
   }
 ));
@@ -91,8 +88,8 @@ app.use(function(req, res, next) {
 })
 
 function authorizedUser(req, res, next) {
-  console.log(req.session.user);
-  if (req.session.user) {
+  // console.log(req.session.passport.user.photos);
+  if (req.session.passport) {
     next();
   } else {
     res.redirect('/');
