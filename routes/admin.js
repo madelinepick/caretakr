@@ -75,6 +75,15 @@ router.post('/:user_id/update/:dependents_id', function(req, res, next){
       console.log(req.body.dependent_name)
       res.redirect('/admin/' + req.params.user_id + '/home')
     })
+});
+
+router.post('/:user_id/delete/:dependents_id', function(req, res, next){
+  return knex('dependents')
+    .where({dependents_id: req.params.dependents_id})
+    .del()
+    .then(function(){
+      res.redirect('/admin/' + req.params.user_id + '/home')
+    })
 })
 
 router.get('/:user_id/home', function(req, res, next) {
