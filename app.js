@@ -1,24 +1,25 @@
+require('dotenv').load()
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var GoogleStrategy = require('passport-google-oauth2').Strategy
+
 var TwitterStrategy = require('passport-twitter').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var passport = require('passport');
 var cookieSession = require('cookie-session');
-var dotenv = require('dotenv');
 
 
 var authorized = require('./routes/oauth/authorize')
 var routes = require('./routes/index');
 var auth = require('./routes/auth');
 var admin = require('./routes/admin');
+var auth_google = require('./routes/oauth/google');
+var serialize = require('./routes/oauth/serialize')
 
 var app = express();
-require('dotenv').load()
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,6 +42,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/auth', auth_google);
 
 // passport.use(new TwitterStrategy({
 //     consumerKey: process.env.TWITTER_CONSUMER_KEY,
@@ -69,7 +71,7 @@ app.use(function(req, res, next) {
     next()
 })
 
-app.use('/admin', authorized, admin);
+app.use('/admin', authorized.authorizedUser, admin);
 app.use('/', routes);
 
 // catch 404 and forward to error handler

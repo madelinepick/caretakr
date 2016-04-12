@@ -1,4 +1,17 @@
+var express = require('express');
+var router = express.Router();
+var GoogleStrategy = require('passport-google-oauth2').Strategy
 var passport = require('passport');
+
+router.get('/google',
+  passport.authenticate('google', { scope: ['email', 'profile'] }));
+
+router.get('/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Authenticated successfully
+    res.redirect('/');
+  });
 
 passport.use(new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
@@ -11,4 +24,4 @@ passport.use(new GoogleStrategy({
     }
 ));
 
-module.exports = passport
+module.exports = router;
