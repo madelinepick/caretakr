@@ -42,15 +42,15 @@
 
 <div class="right">
   <div class="row">
-    <form class="add" action="/{{user_id}}/update/{{dependent_id}}" method="post">
-      <h3>Update {{dependent_data.dependent_name}}</h3>
+    <form class="add" action="/admin/{{user_id}}/update/{{dependent_data.dependents_id}}" method="post">
+      <h3>Update {{dependent_data.dependent_name}}{{dependent_data.dependents_id}}</h3>
       <label for="being_type">Type</label><br>
       <input type="radio" name="being_type" value="child">
       <label class='smaller' for="child">Child</label><br>
       <input type="radio" name="being_type" value="pet">
       <label class='smaller' for="pet">Pet</label><br>
       <label for="name">Name</label><br>
-      <input type="text" name="name" value="{{dependent_data.dependent_name}}"><br>
+      <input type="text" name="dependent_name" value="{{dependent_data.dependent_name}}"><br>
       <label for="picture_url">Link to a photo (ex:https://myphoto.com)</label><br>
       <input type="text" name="picture_url" value="{{dependent_data.picture_url}}"><br>
 {{#rules_data}}

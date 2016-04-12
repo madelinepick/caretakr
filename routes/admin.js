@@ -1,4 +1,4 @@
-var express = require('express'); 
+var express = require('express');
 var router = express.Router();
 var knex = require('knex')(require('../knexfile')['development']);
 
@@ -11,7 +11,7 @@ router.get('/:user_id/add', function(req, res, next) {
 router.post('/:user_id/add', function(req, res, next) {
   return knex('dependents')
     .insert({
-      dependent_name: req.body.name,
+      dependent_name: req.body.dependent_name,
       being_type: req.body.being_type,
       picture_url: req.body.picture_url,
       contact_info_id: req.body.contact_info_id,
@@ -52,6 +52,21 @@ router.get('/:user_id/update/:dependents_id', function(req, res, next) {
   })
 });
 
+router.post('/:user_id/update/:dependents_id', function(req, res, next){
+  return knex('dependents')
+    .where({dependents_id: req.params.dependents_id})
+    .update({
+      dependent_name: req.body.dependent_name,
+      being_type: req.body.being_type,
+      picture_url: req.body.picture_url,
+      contact_info_id: req.body.contact_info_id,
+      user_id: req.params.user_id
+    }).then(function(){
+      console.log(req.body.dependent_name)
+      res.redirect('/admin/' + req.params.user_id + '/home')
+    })
+})
+
 router.get('/:user_id/home', function(req, res, next) {
   return knex('dependents')
     .where({
@@ -59,7 +74,7 @@ router.get('/:user_id/home', function(req, res, next) {
     })
     .then(function(data) {
 
-      console.log(data)
+      //console.log(data)
 
       res.render('home', {
         dependents: data,
