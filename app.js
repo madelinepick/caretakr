@@ -11,7 +11,6 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var passport = require('passport');
 var cookieSession = require('cookie-session');
 
-
 var authorized = require('./routes/oauth/authorize')
 var routes = require('./routes/index');
 var auth = require('./routes/auth');

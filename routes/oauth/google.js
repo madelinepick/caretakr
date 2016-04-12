@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var GoogleStrategy = require('passport-google-oauth2').Strategy
 var passport = require('passport');
+var knex = require('knex')(require('../../knexfile')['development']);
 
 router.get('/google',
   passport.authenticate('google', { scope: ['email', 'profile'] }));
@@ -20,7 +21,32 @@ passport.use(new GoogleStrategy({
         passReqToCallback: true
     },
     function(request, accessToken, refreshToken, profile, done) {
-        return done(null, profile);
+      console.log(profile.id);
+      knex('users')
+      .where({google_id: profile.id})
+      .select('user_id')
+      .first()
+      .then(function(id){
+        console.log(id);
+        if (id) {
+          console.log('welcome back');
+        } else {
+          return knex('users')
+          .insert({user_name: profile.displayName,
+                   google_id: profile.id,
+                   picture_url: profile.photos[0].value
+                 })
+          .returning('user_id')
+          .then(function(new_user){
+            console.log('new user' + new_user);
+            console.log(profile.id);
+            console.log(profile.displayName);
+            console.log(profile.email);
+          })
+
+        }
+      })
+      return done(null, profile);
     }
 ));
 
