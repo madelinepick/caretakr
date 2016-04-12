@@ -11,6 +11,8 @@ var passport = require('passport');
 var cookieSession = require('cookie-session');
 var dotenv = require('dotenv');
 
+
+var authorized = require('./routes/oauth/authorize')
 var routes = require('./routes/index');
 var auth = require('./routes/auth');
 var admin = require('./routes/admin');
@@ -40,46 +42,26 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-passport.use(new GoogleStrategy({
-        clientID: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: process.env.HOST + "/auth/google/callback",
-        passReqToCallback: true
-    },
-    function(request, accessToken, refreshToken, profile, done) {
-        return done(null, profile);
-    }
-));
-
-passport.use(new TwitterStrategy({
-    consumerKey: process.env.TWITTER_CONSUMER_KEY,
-    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-    callbackURL: process.env.HOST + "/auth/twitter/callback"
-}, function(token, tokenSecret, profile, cb) {
-    return cb(null, profile);
-}));
-
-passport.use(new FacebookStrategy({
-    clientID: process.env.FACEBOOK_APP_ID,
-    clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: process.env.HOST + "/auth/facebook/callback",
-    profileFields: ['email', 'picture', 'name']
-  },
-  function(accessToken, refreshToken, profile, cb) {
-      return cb(null, profile);
-  }
-));
+// passport.use(new TwitterStrategy({
+//     consumerKey: process.env.TWITTER_CONSUMER_KEY,
+//     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+//     callbackURL: process.env.HOST + "/auth/twitter/callback"
+// }, function(token, tokenSecret, profile, cb) {
+//     return cb(null, profile);
+// }));
+//
+// passport.use(new FacebookStrategy({
+//     clientID: process.env.FACEBOOK_APP_ID,
+//     clientSecret: process.env.FACEBOOK_APP_SECRET,
+//     callbackURL: process.env.HOST + "/auth/facebook/callback",
+//     profileFields: ['email', 'picture', 'name']
+//   },
+//   function(accessToken, refreshToken, profile, cb) {
+//       return cb(null, profile);
+//   }
+// ));
 
 app.use('/auth', auth);
-
-
-passport.serializeUser(function(user, done) {
-    done(null, user);
-});
-
-passport.deserializeUser(function(user, done) {
-    done(null, user);
-});
 
 app.use(function(req, res, next) {
     // console.log(req.user);
@@ -87,17 +69,7 @@ app.use(function(req, res, next) {
     next()
 })
 
-function authorizedUser(req, res, next) {
-  // console.log(req.session.passport.user.photos);
-  if (req.session.passport) {
-    next();
-  } else {
-    res.redirect('/');
-  }
-}
-
-app.use('/admin', authorizedUser, admin);
-
+app.use('/admin', authorized, admin);
 app.use('/', routes);
 
 // catch 404 and forward to error handler
