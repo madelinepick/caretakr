@@ -17,23 +17,26 @@
   <div class="leftnav household">
     <h3>Your Household</h3>
   </div>
+  {{#dependents}}
+
   <div class="leftnav">
     <!-- Eventually users name as an hbs param goes below -->
-    <h2 class='dependentsId'>John</h2>
+    <h2 class='dependentsId'><a href="/admin/{{user_id}}/update/{{dependents_id}}">{{dependent_name}}</a></h2>
   </div>
-  <div class="leftnav">
+  {{/dependents}}
+  <!-- <div class="leftnav">
     <h2 class='dependentsId'>Jane</h2>
   </div>
   <div class="leftnav">
     <h2 class='dependentsId'>Scruffles</h2>
     <i class="fa fa-paw fa-2x"></i>
-  </div>
+  </div> -->
   <div class="leftnav new">
     <i class="fa fa-plus fa-lg"></i>
     <h2 class='dependentsId'><a href="/admin/{{user_id}}/add">Add new dependent</a></h2>  </div>
   <div class="leftnav new">
     <i class="fa fa-plus fa-lg"></i>
-    <h2 class='dependentsId'><a href="#">Add/update contacts</a></h2>
+    <h2 class='dependentsId'><a href="/admin/{{user_id}}/update">Add/update contacts</a></h2>
 
   </div>
 </div>
