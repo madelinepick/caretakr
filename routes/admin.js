@@ -3,8 +3,18 @@ var router = express.Router();
 var knex = require('knex')(require('../knexfile')['development']);
 
 router.get('/:user_id/add', function(req, res, next) {
-  res.render('add', {
-    user_id: req.params.user_id
+  return knex('dependents')
+    .where({
+      user_id: req.params.user_id
+    })
+    .then(function(data) {
+
+      //console.log(data)
+
+      res.render('add', {
+        dependents: data,
+        user_id: req.params.user_id
+      })
   });
 });
 
