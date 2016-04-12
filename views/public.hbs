@@ -1,6 +1,5 @@
 <nav>
   <img class="applogo" src="/images/CaretakrWhite.png" alt="" />
-
   <div>
     <div class="circleimage">
       <!-- eventually user image goes here  -->
@@ -25,50 +24,49 @@
   </div>
   {{/dependents}}
   <!-- <div class="leftnav">
-    <h2 class='dependentsId'>Jane</h2>
-  </div>
-  <div class="leftnav">
-    <h2 class='dependentsId'>Scruffles</h2>
-    <i class="fa fa-paw fa-2x"></i>
-  </div> -->
+  <h2 class='dependentsId'>Jane</h2>
+</div>
+<div class="leftnav">
+<h2 class='dependentsId'>Scruffles</h2>
+<i class="fa fa-paw fa-2x"></i>
+</div> -->
+<div class="leftnav new">
+  <i class="fa fa-plus fa-lg"></i>
+  <h2 class='dependentsId'><a href="/admin/{{user_id}}/add">Add new dependent</a></h2>  </div>
   <div class="leftnav new">
     <i class="fa fa-plus fa-lg"></i>
-    <h2 class='dependentsId'><a href="/admin/{{user_id}}/add">Add new dependent</a></h2>  </div>
-  <div class="leftnav new">
-    <i class="fa fa-plus fa-lg"></i>
-    <h2 class='dependentsId'><a href="/admin/{{user_id}}/contacts">Add/update contacts</a></h2>
+    <h2 class='dependentsId'><a href="/admin/{{user_id}}/update">Add/update contacts</a></h2>
 
   </div>
 </div>
 
 <div class="right">
   <div class="row">
-      <!-- Eventually get name from database -->
-      <h2>John</h2>
+    <!-- Eventually get name from database -->
+    <h2>{{dependents.dependent_name}}</h2>
   </div>
-
   <div class="row">
     <div class="list">
       <h3>Instructions</h3>
-      <!-- Eventually child's information from databse -->
-      <h4>Allergies</h4>
-        <p>Peanuts, shellish, wheat.</p>
-      <h4>Bed Time Routine</h4>
-        <p>John goes to bed around 8 pm. If he's not tired, you can let him stay up until 9pm. Make sure he brushes his teeth and changes into pajamas. We usually read him 1-2 books. He likes the night light on.</p>
-      <h4>TV Rules</h4>
-      <p>He can watch an hour of TV, only kids channels.</p>
+      {{#rules}}
+      <h1>{{title}}</h1>
+      <p>
+        {{body}}
+      </p>
+      {{/rules}}
     </div>
+
     <div class="list">
       <h3>Contact</h3>
       <!-- Eventually contact info from databse -->
       <h4>My Phone</h4>
-        <p>555-555-5555</p>
+      <p>555-555-5555</p>
       <h4>Doctor's Phone</h4>
-        <p>555-555-5555</p>
+      <p>555-555-5555</p>
       <h4>Neighbor's Phone</h4>
-        <p>555-555-5555</p>
+      <p>555-555-5555</p>
       <h4>My Email</h4>
-        <p>email@email.com</p>
+      <p>email@email.com</p>
     </div>
   </div>
 

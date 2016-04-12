@@ -83,6 +83,11 @@ form > input[type='submit'], .row > section > button{
   color: #333;
   margin-left: 0px;
 }
+
+#delete_button {
+  background-color: rgba(252, 8, 8, 0.71);
+}
+
 form >label{
   font-family: 'Lato', sans-serif;
   font-weight: 500;
