@@ -10,23 +10,30 @@ router.get('/', function(req, res, next) {
 
 /*Public Route.*/
 
-router.get('/:user_id/public', function(req, res, next){
+router.get('/:user_id/public/:dependents_id', function(req, res, next){
   return knex('dependents')
   .where({user_id: req.params.user_id})
-  .first()
   .then(function(data) {
     return knex('rules')
-    .where({dependents_id: data.dependents_id})
+    .where({dependents_id: req.params.dependents_id})
     .then(function(rulesData){
-      // console.log(rulesData);
+      return knex('dependents')
+      .where({dependents_id: req.params.dependents_id})
+      .first()
+      .then(function(dependent_name_data){
+  console.log(dependent_name_data)
       res.render('public', {
+
+        name: dependent_name_data,
         dependents: data,
         rules: rulesData,
         user_id: req.params.user_id
+      })
       });
     })
   })
   res.render('public');
 })
+
 
 module.exports = router;
