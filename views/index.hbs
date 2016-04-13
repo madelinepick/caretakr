@@ -10,10 +10,11 @@
   </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid mainContent">
   <div class="row">
-    <div class="signup">
-      <form class='floatright' action="auth/signup" method="post">
+
+    <div class="signup col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <form  action="auth/signup" method="post">
         <label for="username">Username</label><br>
         <input class="formputs" type="text" name="username"><br>
         <label for="password">Password</label><br>
@@ -23,17 +24,13 @@
         <input type="submit" value="Sign Up">
       </form>
     </div>
-    <div class="signup">
-      <form action="/auth/login" method="post">
-        <label for="username">Username</label><br>
-        <input class="formputs" type="text" name="username"><br>
-        <label for="password">Password</label><br>
-        <input class="formputs password" type="password" name="password"><br>
-        <input type="submit" value="Log in">
-      </form>
-      <a class="btn btn-danger text-center" href="/auth/google">Google+</a>
-      <a class="btn btn-info text-center" href="/auth/facebook">Facebook</a>
-      <a class="btn btn-info text-center" href="/auth/twitter">Twitter</a>
+
+    <div class="login col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <form action="/auth/login" method="post" />
     </div>
   </div>
 </div>
+
+<footer>
+  <h5>Galvanize Group Project</h5>
+</footer>
