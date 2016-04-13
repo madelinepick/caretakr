@@ -1,10 +1,20 @@
+var express = require('express');
+var router = express.Router();
+var knex = require('knex')(require('../../knexfile')['development']);
+
 module.exports = {
   authorizedUser: function(req, res, next) {
-    // console.log(req.session.passport.user.photos);
-    if (req.session.passport) {
-      next();
-    } else {
-      res.redirect('/');
-    }
+    knex('users')
+    .where({user_id: req.session.passport.user.id})
+    .first()
+    .then(function(user){
+      console.log(req.params);
+      console.log(user.user_id);
+      if (req.session.passport.user.id) {
+        next();
+      } else {
+        res.redirect('/');
+      }
+    })
   }
 }
