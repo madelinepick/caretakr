@@ -1,36 +1,43 @@
-<div class="hero">
-  <section>
-    <button>Login</button>
-    <button>Sign Up</button>
-  </section>
-  <img class="logo" src="/images/CaretakrWhite.png" alt="" />
+<div class="container-fluid">
+  <div class="row">
+    <div class="hero col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="indexNav">
+        <a class="btn home-btn" href="/settings">Settings</a>
+        <a class="btn home-btn" href="/auth/logout">Logout</a>
+      </div>
+      <img class="logo mobile" src="/images/CaretakrWhite.png" alt=""/>
+    </div>
+  </div>
 </div>
 
-<div class="row">
+<div class="container-fluid mainContent">
+  <div class="row">
 
-  <div class="signup">
-    <form class='floatright' action="auth/signup" method="post">
-      <label for="username">Username</label><br>
-      <input class="formputs" type="text" name="username"><br>
-      <label for="password">Password</label><br>
-      <input class="formputs password" type="password" name="password"><br>
-      <label for="passwordcheck">Re-type Password</label><br>
-      <input class="formputs password" type="password" name="passwordcheck"><br>
-      <input type="submit" value="Sign Up">
-    </form>
-  </div>
+    <div class="signup col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <form  action="auth/signup" method="post">
+        <label for="username">Username</label><br>
+        <input class="formputs" type="text" name="username"><br>
+        <label for="password">Password</label><br>
+        <input class="formputs password" type="password" name="password"><br>
+        <label for="passwordcheck">Re-type Password</label><br>
+        <input class="formputs password" type="password" name="passwordcheck"><br>
+        <input type="submit" value="Sign Up">
+      </form>
+    </div>
 
-    <div class="signup">
+    <div class="login col-xs-6 col-sm-6 col-md-6 col-lg-6">
       <form action="/auth/login" method="post">
         <label for="username">Username</label><br>
         <input class="formputs" type="text" name="username"><br>
         <label for="password">Password</label><br>
         <input class="formputs password" type="password" name="password"><br>
         <input type="submit" value="Log in">
+        <a class="btn btn-danger text-center g-btn" href="/auth/google">Google+</a>
       </form>
-      <a class="btn btn-danger text-center" href="/auth/google">Google+</a>
-      <a class="btn btn-info text-center" href="/auth/facebook">Facebook</a>
-      <a class="btn btn-info text-center" href="/auth/twitter">Twitter</a>
     </div>
-
   </div>
+</div>
+
+<footer>
+  <h5>Galvanize Group Project</h5>
+</footer>
