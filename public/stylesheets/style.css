@@ -211,9 +211,9 @@ div > .navbar > a{
   color: #333;
   padding-left: 5%;
 }
-.row{
+/*.row{
   display: flex;
-}
+}*/
 .right > .row{
   margin-left: 0px;
   margin-right: 0px;
