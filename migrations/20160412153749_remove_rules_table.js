@@ -1,8 +1,8 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.table('dependents', function(table){
-    table.string('title');
-    table.string('body');
+    table.json('title');
+    table.json('body');
   }).dropTable('rules')
 };
 

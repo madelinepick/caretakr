@@ -4,30 +4,36 @@ var knex = require('knex')(require('../knexfile')['development']);
 
 router.get('/:user_id/add/', function(req, res, next) {
   return knex('dependents')
-  .where({
-    user_id: req.params.user_id
-  })
-  .then(function(data) {
-    res.render('add', {
-      dependents: data,
+    .where({
       user_id: req.params.user_id
     })
-  });
+    .then(function(data) {
+      res.render('add', {
+        dependents: data,
+        user_id: req.params.user_id
+      })
+    });
 });
 
 router.post('/:user_id/add/', function(req, res, next) {
-  return knex('dependents')
-  .insert({
-    dependent_name: req.body.dependent_name,
-    being_type: req.body.being_type,
-    picture_url: req.body.picture_url,
-    contact_info_id: req.body.contact_info_id,
-    user_id: req.params.user_id,
-    title: req.body.title,
-    body: req.body.body
-  }).then(function(data) {
 
-    res.redirect('/admin/' + req.params.user_id + '/home')
+  return knex('dependents')
+    .insert({
+      dependent_name: req.body.dependent_name,
+      being_type: req.body.being_type,
+      picture_url: req.body.picture_url,
+      contact_info_id: req.body.contact_info_id,
+      user_id: req.params.user_id,
+      title: {
+        titles: req.body.title
+      },
+      body: {
+        body: req.body.body
+      }
+
+    }).then(function() {
+      res.redirect('/admin/' + req.params.user_id + '/home')
+
     })
 
 })
@@ -35,82 +41,126 @@ router.post('/:user_id/add/', function(req, res, next) {
 
 
 router.get('/:user_id/update/:dependents_id', function(req, res, next) {
+
   return knex('dependents')
-  .where({
-    dependents_id: req.params.dependents_id
-  })
-  .first()
-  .then(function(data) {
+    .where({
+      dependents_id: req.params.dependents_id
+    })
+    .first()
+    .then(function(data) {
       return knex('dependents')
-      .where({
-        user_id: req.params.user_id
-      })
-      .then(function(even_more_data) {
-          console.log(data)
-        res.render('update', {
-          dependent_data: data,
-          dependents: even_more_data,
+        .where({
           user_id: req.params.user_id
+        })
+        .then(function(even_more_data) {
+          console.log(data);
+          res.render('update', {
+            titles: data.title.titles,
+            bodies: data.body.body,
+            dependent_data: data,
+            dependents: even_more_data,
+            user_id: req.params.user_id
+          });
         });
-      });
     });
-  });
+});
 
 
 router.post('/:user_id/update/:dependents_id', function(req, res, next) {
   return knex('dependents')
-  .where({
-    dependents_id: req.params.dependents_id
-  })
-  .update({
-    dependent_name: req.body.dependent_name,
-    being_type: req.body.being_type,
-    picture_url: req.body.picture_url,
-    contact_info_id: req.body.contact_info_id,
-    user_id: req.params.user_id
-  }).then(function() {
-    console.log(req.body.dependent_name)
-    res.redirect('/admin/' + req.params.user_id + '/home')
-  })
+    .where({
+      dependents_id: req.params.dependents_id
+    })
+    .update({
+      dependent_name: req.body.dependent_name,
+      being_type: req.body.being_type,
+      picture_url: req.body.picture_url,
+      contact_info_id: req.body.contact_info_id,
+      user_id: req.params.user_id
+    }).then(function() {
+      console.log(req.body.dependent_name)
+      res.redirect('/admin/' + req.params.user_id + '/home')
+    })
 });
 
 router.post('/:user_id/delete/:dependents_id', function(req, res, next) {
   return knex('dependents')
-  .where({
-    dependents_id: req.params.dependents_id
-  })
-  .del()
-  .then(function() {
-    res.redirect('/admin/' + req.params.user_id + '/home')
-  })
+    .where({
+      dependents_id: req.params.dependents_id
+    })
+    .del()
+    .then(function() {
+      res.redirect('/admin/' + req.params.user_id + '/home')
+    })
 })
 
 router.get('/:user_id/home', function(req, res, next) {
   return knex('dependents')
-  .where({
-    user_id: req.params.user_id
-  })
-  .then(function(data) {
-    res.render('home', {
-      dependents: data,
+    .where({
       user_id: req.params.user_id
-    });
-  })
+    })
+    .then(function(data) {
+      res.render('home', {
+        dependents: data,
+        user_id: req.params.user_id
+      });
+    })
 });
 
-router.get('/:user_id/contacts', function(req, res, next){
+router.get('/:user_id/contacts', function(req, res, next) {
   return knex('dependents')
+    .where({
+      user_id: req.params.user_id
+    })
+    .then(function(data) {
+      return knex('users')
+        .where({
+          user_id: req.params.user_id
+        })
+        .first()
+        .then(function(more_data) {
+          return knex('contact_info')
+          .where({
+            user_id: req.params.user_id
+          })
+          .first()
+          .then(function(even_more_data){
+
+          console.log(more_data);
+          res.render('contact', {
+            contact_info: even_more_data,
+            user: more_data,
+            dependents: data,
+            user_id: req.params.user_id
+          })
+          })
+        });
+    })
+})
+
+router.post('/:user_id/contacts', function(req, res, next){
+  return knex('users')
   .where({
     user_id: req.params.user_id
   })
-  .then(function(data) {
-    res.render('contact', {
-      dependents: data,
-      user_id: req.params.user_id
-    });
-  })})
+  .update({
+    phone_number: req.body.phone_number
+  })
+  .then(function(){
+    return knex('contact_info')
+    .insert({
+      user_id: req.params.user_id,
+      dependent_friend_number: req.body.dependent_friend_number,
+      doctor_number: req.body.doctor_number,
+      vet_number: req.body.vet_number
+    })
+    .then(function(){
+      res.redirect('/admin/' + req.params.user_id + '/home')
+    })
+  })
+})
 
 
 
 
-  module.exports = router;
+module.exports = router;
