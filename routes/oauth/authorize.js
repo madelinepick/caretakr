@@ -1,5 +1,4 @@
 var express = require('express');
-var router = express.Router();
 var knex = require('knex')(require('../../knexfile')['development']);
 
 module.exports = {
@@ -8,7 +7,6 @@ module.exports = {
     .where({user_id: req.session.passport.user.id})
     .first()
     .then(function(user){
-      console.log(req.params);
       console.log(user.user_id);
       if (req.session.passport.user.id) {
         next();
