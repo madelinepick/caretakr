@@ -43,18 +43,18 @@
 
 <div class="right">
   <div class="row">
-    <form class="add" action="/admin/{{user_id}}/contacts" method="post">
+    <form class="add" action="/admin/{{user.user_id}}/contacts" method="post">
       <h3>Contact Info</h3>
       <label for="cellphone">My Cell Phone</label><br>
-      <input type="text" name="cellphone" value=""><br>
+      <input type="text" name="phone_number" value="{{user.phone_number}}"><br>
       <label for="email">My Email</label><br>
-      <input type="text" name="email" value=""><br>
+      <input type="text" name="email" value="{{user.user_name}}"><br>
       <label for="doctor">Doctor's Phone (child)</label><br>
-      <input type="text" name="doctor_number" value=""><br>
+      <input type="text" name="doctor_number" value="{{contact_info.doctor_number}}"><br>
       <label for="doctor">Doctor's Phone (pet)</label><br>
-      <input type="text" name="vet_number" value=""><br>
+      <input type="text" name="vet_number" value="{{contact_info.vet_number}}"><br>
       <label for="Neighbor's Phone">Neighbor's Phone</label><br>
-      <input type="text" name="dependent_friend_number" value=""><br>
+      <input type="text" name="dependent_friend_number" value="{{contact_info.dependent_friend_number}}"><br>
 
       <input type="submit" value="Update">
     </form>

@@ -19,23 +19,16 @@
   </div>
   {{#dependents}}
   <div class="leftnav">
-    <!-- Eventually users name as an hbs param goes below -->
     <h2 class='dependentsId'><a href="/admin/{{user_id}}/update/{{dependents_id}}">{{dependent_name}}</a></h2>
   </div>
   {{/dependents}}
-  <!-- <div class="leftnav">
-    <h2 class='dependentsId'>Jane</h2>
-  </div>
-  <div class="leftnav">
-    <h2 class='dependentsId'>Scruffles</h2>
-    <i class="fa fa-paw fa-2x"></i>
-  </div> -->
+
   <div class="leftnav new">
     <i class="fa fa-plus fa-lg"></i>
     <h2 class='dependentsId'><a href="/admin/{{user_id}}/add">Add new dependent</a></h2>  </div>
   <div class="leftnav new">
     <i class="fa fa-plus fa-lg"></i>
-    <h2 class='dependentsId'><a href="/admin/{{user_id}}/update">Add/update contacts</a></h2>
+    <h2 class='dependentsId'><a href="/admin/{{user_id}}/contacts">Add/update contacts</a></h2>
 
   </div>
 </div>
@@ -43,7 +36,7 @@
 <div class="right">
   <div class="row">
     <form class="add" action="/admin/{{user_id}}/update/{{dependent_data.dependents_id}}" method="post">
-      <h3>Update {{dependent_data.dependent_name}}{{dependent_data.dependents_id}}</h3>
+      <h3>Update {{dependent_data.dependent_name}}</h3>
       <label for="being_type">Type</label><br>
       <input type="radio" name="being_type" value="child">
       <label class='smaller' for="child">Child</label><br>
@@ -53,27 +46,15 @@
       <input type="text" name="dependent_name" value="{{dependent_data.dependent_name}}"><br>
       <label for="picture_url">Link to a photo (ex:https://myphoto.com)</label><br>
       <input type="text" name="picture_url" value="{{dependent_data.picture_url}}"><br>
-{{#dependent_data.title}}
+{{#titles}}
       <label for="section1name">Rule title:</label>
       <input type="text" name="section1name" value="{{this}}"><br>
-      {{/dependent_data.title}}
-      {{#dependent_data.body}}
+      {{/titles}}
+      {{#bodies}}
       <label for="section1">Content</label><br>
-      <textarea name="section1" rows="4" cols="40" value="{{this}}"></textarea><br>
-{{/dependent_data.body}}
+      <textarea name="section1" rows="4" cols="40">{{this}}</textarea><br>
+{{/bodies}}
 
-      <!-- <label for="section2name">Section Two Name:</label>
-      <input type="text" name="section2name" value=""><br>
-      <label for="section2">Content</label><br>
-      <textarea name="section2" rows="4" cols="40"></textarea><br>
-      <label for="section3name">Section Three Name:</label>
-      <input type="text" name="section3name" value=""><br>
-      <label for="section3">Content</label><br>
-      <textarea name="section3" rows="4" cols="40"></textarea><br>
-      <label for="section4name">Section Four Name:</label>
-      <input type="text" name="section4name" value=""><br>
-      <label for="section4">Content</label><br>
-      <textarea name="section4" rows="4" cols="40"></textarea><br> -->
       <input type="submit" value="Update">
 
     </form>
