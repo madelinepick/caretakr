@@ -124,16 +124,6 @@ router.get('/:user_id/contacts', function(req, res, next) {
         return knex('users')
           .where({ user_id: req.params.user_id })
           .first()
-<<<<<<< HEAD
-          .then(function(even_more_data){
-
-          console.log(even_more_data);
-          res.render('contact', {
-            contact_info: even_more_data,
-            user: more_data,
-            dependents: data,
-            user_id: req.params.user_id
-=======
           .then(function(more_data) {
             return knex('contact_info')
               .where({ user_id: req.params.user_id })
@@ -148,7 +138,6 @@ router.get('/:user_id/contacts', function(req, res, next) {
                 })
               })
             })
->>>>>>> 06e339d664b32beebdac1d0976e39c8ab07b7726
           })
         }).catch(function() {
           console.log('error');
