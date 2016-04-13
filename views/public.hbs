@@ -35,28 +35,35 @@
 <div class="right">
   <div class="row">
     <!-- Eventually get name from database -->
-    <h2>{{name.dependent_name}}</h2>
+    <h2>{{rules.dependent_name}}</h2>
   </div>
   <div class="row">
     <div class="list">
       <h3>Instructions</h3>
-      <h1>{{title}}</h1>
+      {{#rules.title}}
+      {{#titles}}
+      <h1>{{this}}</h1>
+      {{/titles}}
+{{#body}}
       <p>
-        {{body}}
+        {{this}}
       </p>
+      {{/body}}
+      {{/rules.title}}
+
     </div>
 
     <div class="list">
       <h3>Contact</h3>
       <!-- Eventually contact info from databse -->
       <h4>My Phone</h4>
-      <p>555-555-5555</p>
+      <p>{{contact_info.phone_number}}</p>
       <h4>Doctor's Phone</h4>
-      <p>555-555-5555</p>
+      <p>{{contact_info.doctor_number}}</p>
       <h4>Neighbor's Phone</h4>
-      <p>555-555-5555</p>
+      <p>{{contact_info.dependent_friend_number}}</p>
       <h4>My Email</h4>
-      <p>email@email.com</p>
+      <p>{{user.user_name}}</p>
     </div>
   </div>
 

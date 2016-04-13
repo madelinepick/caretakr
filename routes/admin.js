@@ -25,11 +25,10 @@ router.post('/:user_id/add/', function(req, res, next) {
       contact_info_id: req.body.contact_info_id,
       user_id: req.params.user_id,
       title: {
-        titles: req.body.title
-      },
-      body: {
+        titles: req.body.title,
         body: req.body.body
       }
+
 
     }).then(function() {
       res.redirect('/admin/' + req.params.user_id + '/home')
@@ -53,10 +52,10 @@ router.get('/:user_id/update/:dependents_id', function(req, res, next) {
           user_id: req.params.user_id
         })
         .then(function(even_more_data) {
-          console.log(data);
+          console.log(data.title.titles);
           res.render('update', {
             titles: data.title.titles,
-            bodies: data.body.body,
+            bodies: data.title.body,
             dependent_data: data,
             dependents: even_more_data,
             user_id: req.params.user_id
@@ -126,7 +125,7 @@ router.get('/:user_id/contacts', function(req, res, next) {
           .first()
           .then(function(even_more_data){
 
-          console.log(more_data);
+          console.log(even_more_data);
           res.render('contact', {
             contact_info: even_more_data,
             user: more_data,

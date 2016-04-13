@@ -15,7 +15,7 @@
 
 <div class="left">
   <div class="leftnav household">
-    <h3>Your Household</h3>
+    <h3><a href="/admin/{{user_id}}/home">Your Household</a></h3>
   </div>
   {{#dependents}}
 
@@ -36,7 +36,7 @@
     <h2 class='dependentsId'><a href="/admin/{{user_id}}/add">Add new dependent</a></h2>  </div>
   <div class="leftnav new">
     <i class="fa fa-plus fa-lg"></i>
-    <h2 class='dependentsId'><a href="/admin/{{user_id}}/update">Add/update contacts</a></h2>
+    <h2 class='dependentsId'><a href="/admin/{{user_id}}/contacts">Add/update contacts</a></h2>
 
   </div>
 </div>
@@ -55,19 +55,19 @@
       <input type="text" name="dependent_name" value=""><br>
       <label for="picture_url">Link to a photo (ex:https://myphoto.com)</label><br>
       <input type="text" name="picture_url" value=""><br>
-      <label for="section1name">Section One Name:</label>
+      <label for="section1name">Rule Name:</label>
       <input type="text" name="title" value=""><br>
       <label for="section1">Content</label><br>
       <textarea name="body" rows="4" cols="40"></textarea><br>
-      <label for="section2name">Section Two Name:</label>
+      <label for="section2name">Rule Name:</label>
       <input type="text" name="title" value=""><br>
       <label for="section2">Content</label><br>
       <textarea name="body" rows="4" cols="40"></textarea><br>
-      <label for="section3name">Section Three Name:</label>
+      <label for="section3name">Rule Name:</label>
       <input type="text" name="title" value=""><br>
       <label for="section3">Content</label><br>
       <textarea name="body" rows="4" cols="40"></textarea><br>
-      <label for="section4name">Section Four Name:</label>
+      <label for="section4name">Rule Name:</label>
       <input type="text" name="title" value=""><br>
       <label for="section4">Content</label><br>
       <textarea name="body" rows="4" cols="40"></textarea><br>

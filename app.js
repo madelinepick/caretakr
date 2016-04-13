@@ -43,15 +43,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use('/auth', auth_google);
+app.use('/auth', auth_google);
 
-passport.use(new TwitterStrategy({
-    consumerKey: process.env.TWITTER_CONSUMER_KEY,
-    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-    callbackURL: process.env.HOST + "/auth/twitter/callback"
-}, function(token, tokenSecret, profile, cb) {
-    return cb(null, profile);
-}));
+// passport.use(new TwitterStrategy({
+//     consumerKey: process.env.TWITTER_CONSUMER_KEY,
+//     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+//     callbackURL: process.env.HOST + "/auth/twitter/callback"
+// }, function(token, tokenSecret, profile, cb) {
+//     return cb(null, profile);
+// }));
 
 // passport.use(new FacebookStrategy({
 //     clientID: process.env.FACEBOOK_APP_ID,
@@ -72,8 +72,8 @@ app.use(function(req, res, next) {
     next()
 })
 
-app.use('/admin', admin);
-//app.use('/admin', authorized.authorizedUser, admin);
+app.use('/admin', authorized.authorizedUser, admin);
+
 
 app.use('/', routes);
 
