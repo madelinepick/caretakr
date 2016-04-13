@@ -16,12 +16,18 @@
   </div>
 </div>
 
-<div class="container-fluid mobileDrop">
+
+<div class="container-fluid mobileDrop dropdown">
   <div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-      <button class="hamburger" >
+    <div class="dropdown col-md-12 col-sm-12 col-xs-12">
+      <button class="hamburger btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         <span class="glyphicon glyphicon-align-justify"></span>
       </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+      </ul>
     </div>
   </div>
 </div>
@@ -44,6 +50,7 @@
       <h2 class='dependentsId'><a href="/admin/{{user_id}}/contacts">Add/update contacts</a></h2>
     </div>
   </div>
+</div>
 
   <div class="right">
     <div class="row">
@@ -83,3 +90,5 @@
       </section>
     </div>
   </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
