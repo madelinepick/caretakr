@@ -92,15 +92,19 @@ router.post('/:user_id/delete/:dependents_id', function(req, res, next) {
 })
 
 router.get('/:user_id/home', function(req, res, next) {
-  return knex('dependents')
-  .where({
-    user_id: req.params.user_id
-  })
-  .then(function(data) {
-    res.render('home', {
-      dependents: data,
+  authorized.fun(req).then(function(){
+    return knex('dependents')
+    .where({
       user_id: req.params.user_id
-    });
+    })
+    .then(function(data) {
+      res.render('home', {
+        dependents: data,
+        user_id: req.params.user_id
+      });
+    })
+  }).catch(function() {
+    res.redirect('/')
   })
 });
 
