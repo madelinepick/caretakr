@@ -1,0 +1,96 @@
+nav{
+  background-color: #B2DC80;
+  padding: 25px 0px;
+  height: 180px;
+}
+
+.indexNav {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: right;
+  margin-top: 25px;
+  margin-right: 10px;
+}
+
+.applogo{
+  width: 140px;
+  height: auto;
+  margin-left: 30px;
+}
+
+.circleimage {
+  width: 75px;
+  height: 75px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  float: right;
+  margin: 10px;
+}
+
+.circleimage > img{
+  display: inline;
+  margin: 0 auto;
+  width: auto;
+  display: block;
+  max-height: 80px;
+  width: auto;
+}
+
+.hamburger {
+  display: none;
+}
+
+.hamburger > span {
+  display: none;
+}
+
+.mobileDrop {
+  background-color: black;
+}
+
+.left{
+  width: 20%;
+  position: fixed;
+  background-color: #FDA63A;
+  height: 100%;
+  border-right: 1px solid #333;
+}
+
+
+
+@media screen and (max-width: 700px){
+  .mobile {
+    width: 375px;
+  }
+  .hamburger {
+    display: block;
+    height: 40px;
+    width: 40px;
+    color: blue;
+    padding: 0px;
+    float: right;
+  }
+
+  .hamburger > span {
+    display: inline;
+    color: black;
+    padding: 0px;
+    height: 10px;
+    width: auto;
+  }
+
+  .left {
+    display: none;
+  }
+  .applogo {
+    display: none;
+  }
+  .indexNav {
+    text-align: center;
+  }
+  .circleimage{
+    float: left;
+  }
+}

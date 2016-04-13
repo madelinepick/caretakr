@@ -167,14 +167,7 @@ div > .navbar > a{
   color: white;
   margin: 0px 10px;
 }
-.left{
-  width: 20%;
-  position: fixed;
-  background-color: #FDA63A;
-  height: 100%;
-  border-right: 1px solid #333;
 
-}
 .right{
   position: absolute;
   right: 0;
@@ -313,5 +306,4 @@ footer > h5 {
     margin-left: 0px;
     margin-top: 15px;
   }
-
 }
