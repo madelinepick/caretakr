@@ -1,18 +1,24 @@
 var express = require('express');
 var router = express.Router();
 var knex = require('knex')(require('../knexfile')['development']);
+var authorized = require('./oauth/authorize')
 
-router.get('/:user_id/add/', function(req, res, next) {
-  return knex('dependents')
-  .where({
-    user_id: req.params.user_id
-  })
-  .then(function(data) {
-    res.render('add', {
-      dependents: data,
+
+router.get('/:user_id/add/',  function(req, res, next) {
+  authorized.fun(req).then(function(){
+    return knex('dependents')
+    .where({
       user_id: req.params.user_id
     })
-  });
+    .then(function(data) {
+      res.render('add', {
+        dependents: data,
+        user_id: req.params.user_id
+      })
+    });
+  }).catch(function() {
+    res.redirect('/');
+  })
 });
 
 router.post('/:user_id/add/', function(req, res, next) {
