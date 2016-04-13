@@ -26,7 +26,14 @@
     </div>
 
     <div class="login col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <form action="/auth/login" method="post" />
+      <form action="/auth/login" method="post">
+        <label for="username">Username</label><br>
+        <input class="formputs" type="text" name="username"><br>
+        <label for="password">Password</label><br>
+        <input class="formputs password" type="password" name="password"><br>
+        <input type="submit" value="Log in">
+        <a class="btn btn-danger text-center" href="/auth/google">Google+</a>
+      </form>
     </div>
   </div>
 </div>
