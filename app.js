@@ -5,12 +5,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var TwitterStrategy = require('passport-twitter').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
 var passport = require('passport');
 var cookieSession = require('cookie-session');
-
 
 var authorized = require('./routes/oauth/authorize')
 var routes = require('./routes/index');
@@ -18,14 +14,11 @@ var auth = require('./routes/auth');
 var admin = require('./routes/admin');
 var auth_google = require('./routes/oauth/google');
 var serialize = require('./routes/oauth/serialize')
-
-
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -44,37 +37,8 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/auth', auth_google);
-
-// passport.use(new TwitterStrategy({
-//     consumerKey: process.env.TWITTER_CONSUMER_KEY,
-//     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-//     callbackURL: process.env.HOST + "/auth/twitter/callback"
-// }, function(token, tokenSecret, profile, cb) {
-//     return cb(null, profile);
-// }));
-
-// passport.use(new FacebookStrategy({
-//     clientID: process.env.FACEBOOK_APP_ID,
-//     clientSecret: process.env.FACEBOOK_APP_SECRET,
-//     callbackURL: process.env.HOST + "/auth/facebook/callback",
-//     profileFields: ['email', 'picture', 'name']
-//   },
-//   function(accessToken, refreshToken, profile, cb) {
-//       return cb(null, profile);
-//   }
-// ));
-
 app.use('/auth', auth);
-
-app.use(function(req, res, next) {
-    // console.log(req.user);
-    res.locals.user = req.user
-    next()
-})
-
-app.use('/admin', authorized.authorizedUser, admin);
-
-
+app.use('/admin', authorized.loggedIn ,admin);
 app.use('/', routes);
 
 // catch 404 and forward to error handler
