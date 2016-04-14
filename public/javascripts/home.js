@@ -1,3 +1,3 @@
-$('button').click(function() {
-  $(this).toggleClass('expanded').siblings('div').slideToggle();
-});
+// $('button').click(function() {
+//   $(this).toggleClass('expanded').siblings('div').slideToggle();
+// });

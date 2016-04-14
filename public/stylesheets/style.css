@@ -127,16 +127,6 @@ form >label{
   font-family: 'Lato', sans-serif;
   font-weight: 500;
 }
-nav{
-  background-color: #B2DC80;
-  padding: 25px 0px;
-  height: 130px;
-}
-nav > h1{
-  margin: 0px 15px;
-  color: white;
-  text-transform: uppercase;
-}
 .circleimage {
   width: 75px;
   height: 75px;
@@ -177,24 +167,6 @@ nav > h1{
   max-height: 50px;
   width: auto;
 }
-
-nav > div {
-  position: absolute;
-  right: 40px;
-  top: 0px;
-}
-.navbar{
-  position:absolute;
-  right: 0;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  text-transform: uppercase;
-}
-div > .navbar > a{
-  color: white;
-  margin: 0px 10px;
-}
-
 .right{
   position: absolute;
   right: 0;

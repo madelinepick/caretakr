@@ -1,53 +1,6 @@
-.mobileD {
-  display: none;
-  background-color: black;
-  height: 80px;
-}
-.mobileD div {
+.hamburger {
   display: none;
 }
-.mobileD button {
-  float: right;
-  text-indent: 200%;
-  overflow: hidden;
-  background: rgba(255,255,255,0.8) url("http://i.imgur.com/vKRaKDX.png") center no-repeat;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  background-size: 80%;
-  width: 30px;
-  height: 30px;
-  outline: none;
-  -webkit-transition: all 400ms ease;
-  transition: all 400ms ease;
-}
-.mobileD button.expanded {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  background-color: transparent;
-  border: 0;
-}
-.mobileA {
-  display: block;
-}
-.mobileA {
-  display: block;
-}
-
-.mobileA {
-  background: #eee;
-  text-align: center;
-  padding: 20px 0;
-  border-bottom: 1px solid #ddd;
-  text-decoration: none;
-  color: #222;
-  font-weight: bold;
-}
-.mobileA:hover,
-.mobileA:active,
-.mobileA:focus {
-  background: #e7e7e7;
-}
-
 
 .header {
   background-color: #B2DC80;
@@ -113,12 +66,9 @@
   .header {
     height: 90px;
   }
-  .hamburgerContainer {
+  /*.mobileD {
     display: block;
-  }
-  .mobileD {
-    display: block;
-  }
+  }*/
   .home-btn{
     float: none;
   }
@@ -127,5 +77,8 @@
   }
   .row {
     flex-wrap: wrap;
+  }
+  .hamburger {
+    display: block;
   }
 }
