@@ -44,7 +44,7 @@
 
 .left{
   width: 20%;
-  position: fixed;
+  position: absolute;
   background-color: #FDA63A;
   height: 100%;
   border-right: 1px solid #333;
