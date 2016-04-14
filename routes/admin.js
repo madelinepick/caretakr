@@ -73,10 +73,9 @@ router.get('/:user_id/update/:dependents_id', function(req, res, next) {
           });
         });
       });
+    }).catch(function() {
+      res.redirect('/');
     })
-    // .catch(function() {
-    //   res.redirect('/');
-    // })
   });
 
 router.post('/:user_id/update/:dependents_id', function(req, res, next) {
@@ -98,16 +97,12 @@ router.post('/:user_id/update/:dependents_id', function(req, res, next) {
         }
       })
       .then(function() {
-        console.log('update');
-        console.log(req.body.section1)
-        console.log(req.body.section1name)
         res.redirect('/admin/' + req.params.user_id + '/home')
       })
     })
+  }).catch(function() {
+    res.redirect('/');
   })
-  //.catch(function() {
-  //   res.redirect('/');
-  // })
 });
 
 router.post('/:user_id/delete/:dependents_id', function(req, res, next) {
