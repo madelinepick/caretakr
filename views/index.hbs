@@ -13,7 +13,7 @@
 <div class="container-fluid mainContent">
   <div class="row">
 
-    <div class="signup col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="signup col-xs-4 col-sm-4 col-md-4 col-lg-4">
       <form  action="auth/signup" method="post">
         <label for="username">Username</label><br>
         <input class="formputs" type="text" name="username"><br>
@@ -25,10 +25,11 @@
         <input class="formputs password" type="password" name="passwordcheck"><br>
         <input type="submit" value="Sign Up">
       </form>
-      <button class='loginswitch'>Login</button>
+      <p>Already have an account</p>
+      <a href='#' class='loginswitch'>Login instead?</a href='#'>
     </div>
 
-    <div class="login col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="login col-xs-4 col-sm-4 col-md-4 col-lg-4">
       <form action="/auth/login" method="post">
         <label for="username">Username</label><br>
         <input class="formputs" type="text" name="username"><br>
