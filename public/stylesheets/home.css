@@ -1,36 +1,39 @@
-html
-  height: 2000px;
-
-.mobile
+.mobileD {
   display: none;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  div
-    display: none;
-  button
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    border: 0;
-    text-indent: 200%;
-    overflow: hidden;
-    background: rgba(255,255,255,.8) url(http://i.imgur.com/vKRaKDX.png) center no-repeat;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    background-size: 80%;
-    width: 30px;
-    height: 30px;
-    outline: none;
-    transition: all 400ms ease;
-    &.expanded
-      transform: rotate(90deg);
-      background-color: transparent;
-      border: 0;
-  a
-    display: block;
+  background-color: black;
+  height: 80px;
+}
+.mobileD div {
+  display: none;
+}
+.mobileD button {
+  float: right;
+  text-indent: 200%;
+  overflow: hidden;
+  background: rgba(255,255,255,0.8) url("http://i.imgur.com/vKRaKDX.png") center no-repeat;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-size: 80%;
+  width: 30px;
+  height: 30px;
+  outline: none;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+.mobileD button.expanded {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  background-color: transparent;
+  border: 0;
+}
+.mobileA {
+  display: block;
+}
+.mobileA {
+  display: block;
+}
 
-a
+.mobileA {
   background: #eee;
   text-align: center;
   padding: 20px 0;
@@ -38,45 +41,15 @@ a
   text-decoration: none;
   color: #222;
   font-weight: bold;
-  &:hover, &:active, &:focus
-    background: darken(#eee, 3%);
-
-.desktop
-  display: block;
-  overflow: hidden;
-  a
-    width: 25%;
-    float: left;
-    border-right: 1px solid #ddd;
-    box-sizing: border-box;
-    &:last-child
-      border-right: none;
-
-article
-  padding: 0 30px 15px;
+}
+.mobileA:hover,
+.mobileA:active,
+.mobileA:focus {
+  background: #e7e7e7;
+}
 
 
-@media (max-width: 800px)
-  .mobile
-    display: block;
-  .desktop
-    display: none;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-nav{
+.header {
   background-color: #B2DC80;
   padding: 25px 0px;
   height: 180px;
@@ -116,18 +89,6 @@ nav{
   width: auto;
 }
 
-.hamburger {
-  display: none;
-}
-
-.hamburger > span {
-  display: none;
-}
-
-.mobileDrop {
-  background-color: black;
-}
-
 .left{
   width: 20%;
   position: fixed;
@@ -136,29 +97,7 @@ nav{
   border-right: 1px solid #333;
 }
 
-
-
 @media screen and (max-width: 600px){
-  .mobile {
-    width: 375px;
-  }
-  .hamburger {
-    display: block;
-    height: 40px;
-    width: 40px;
-    color: blue;
-    padding: 0px;
-    float: right;
-  }
-
-  .hamburger > span {
-    display: inline;
-    color: black;
-    padding: 0px;
-    height: 10px;
-    width: auto;
-  }
-
   .left {
     display: none;
   }
@@ -171,7 +110,22 @@ nav{
   .circleimage{
     display: none;
   }
-  nav {
+  .header {
     height: 90px;
+  }
+  .hamburgerContainer {
+    display: block;
+  }
+  .mobileD {
+    display: block;
+  }
+  .home-btn{
+    float: none;
+  }
+  .list {
+    flex: 0 0 80%;
+  }
+  .row {
+    flex-wrap: wrap;
   }
 }
