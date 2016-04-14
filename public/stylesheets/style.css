@@ -320,3 +320,16 @@ h5{
   font-weight: 300;
   font-size: 12px;
 }
+.update{
+background-color: #E7DFD3;
+border: 1px solid #333;
+padding: 5px;
+margin-top: 10px;
+}
+a{
+  color: #333;
+}
+a:hover{
+  color: #333;
+  text-decoration: none;
+}
