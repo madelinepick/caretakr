@@ -27,19 +27,21 @@
             <span class="icon-bar"></span>
           </button>
         </div>
+        {{#dependents}}
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li>
-              <a class="navbarA" href="/">Hi</a>
+              <a href="/admin/{{user_id}}/dependents/{{dependents_id}}">{{dependent_name}}</a>
             </li>
             <li>
-              <a class="navbarA" href="/">other</a>
+              <a href="/admin/{{user_id}}/add">Add new dependent</a>
             </li>
             <li>
-              <a class="navbarA" href="/">otherOther</a>
+              <a href="/admin/{{user_id}}/contacts">Add/update contacts</a>
             </li>
           </ul>
         </div>
+          {{/dependents}}
       </div>
     </nav>
   </div>
