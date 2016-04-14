@@ -39,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/auth', auth_google);
 app.use('/auth', auth);
 app.use('/admin', authorized.loggedIn ,admin);
+
 app.use('/', routes);
 
 // catch 404 and forward to error handler

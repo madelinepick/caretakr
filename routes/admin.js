@@ -70,9 +70,18 @@ router.get('/:user_id/update/:dependents_id', function(req, res, next) {
 
           console.log(data.title.titles);
           res.render('update', {
-            user: user_data,
             title1: data.title.titles[0],
+            title2: data.title.titles[1],
+            title3: data.title.titles[2],
+            title4: data.title.titles[3],
+
             body1: data.title.body[0],
+            body2: data.title.body[1],
+            body3: data.title.body[2],
+            body4: data.title.body[3],
+
+            user: user_data,
+
             dependent_data: data,
             dependents: even_more_data,
             user_id: req.params.user_id
@@ -93,8 +102,12 @@ router.post('/:user_id/update/:dependents_id', function(req, res, next) {
       dependent_name: req.body.dependent_name,
       being_type: req.body.being_type,
       picture_url: req.body.picture_url,
-      contact_info_id: req.body.contact_info_id,
-      user_id: req.params.user_id
+      user_id: req.params.user_id,
+      title: {
+        titles: req.body.title,
+        body: req.body.body
+      }
+
     }).then(function() {
       console.log(req.body.dependent_name)
       res.redirect('/admin/' + req.params.user_id + '/home')
