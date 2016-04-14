@@ -1,5 +1,31 @@
-<nav>
-  <img class="applogo" src="/images/CaretakrWhite.png" alt="" />
+<div class="container-fluid">
+  <div class="row">
+    <nav>
+      <img class="applogo" src="/images/CaretakrWhite.png" alt="" />
+      <div>
+        <div class="indexNav">
+          <a class="btn home-btn" href="/settings">Settings</a>
+          <a class="btn home-btn" href="/auth/logout">Logout</a>
+        </div>
+        <div class="circleimage">
+          <!-- eventually user image goes here  -->
+          <img src="http://image.shutterstock.com/z/stock-photo-young-man-making-a-funny-face-49678489.jpg" alt="" />
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+<nav class="desktop">
+  <a href="#">Desktop 1</a>
+  <a href="#">Desktop 2</a>
+  <a href="#">Desktop 3</a>
+  <a href="#">Desktop 4</a>
+</nav>
+
+<nav class="mobile">
+  <button>Toggle</button>
   <div>
     <div class="circleimage">
       <img src="{{user.picture_url}}" alt="" />
@@ -8,8 +34,23 @@
       <a href="/admin/{{user_id}}/settings">Settings</a>
       <a href="/auth/logout">Logout</a>
     </div>
+    <a href="#">Mobile 1</a>
+    <a href="#">Mobile 2</a>
+    <a href="#">Mobile 3</a>
+    <a href="#">Mobile 4</a>
   </div>
 </nav>
+
+<article>
+  <h1>Basic Hamburger Menu</h1>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro quasi sint error perspiciatis quis rem nisi reiciendis doloribus cumque aliquid molestiae quos sed ex commodi ad eveniet asperiores distinctio vero.
+  </p>
+</article>
+
+
+
+
 
 <div class="left">
   <div class="leftnav household">
@@ -19,19 +60,21 @@
   <div class="leftnav">
     <h2 class='dependentsId'><a href="/admin/{{user_id}}/dependents/{{dependents_id}}">{{dependent_name}}</a>
       <div class="circleimage2">
-      <img src="{{picture_url}}" alt="" />
-    </div></h2>
+        <img src="{{picture_url}}" alt="" />
+      </div></h2>
 
-  </div>
-  {{/dependents}}
-  <div class="leftnav new">
-    <i class="fa fa-plus fa-lg"></i>
-    <h2 class='dependentsId'><a href="/admin/{{user_id}}/add">Add new dependent</a></h2>  </div>
+    </div>
+    {{/dependents}}
     <div class="leftnav new">
       <i class="fa fa-plus fa-lg"></i>
-      <h2 class='dependentsId'><a href="/admin/{{user_id}}/contacts">Add/update contacts</a></h2>
+      <h2 class='dependentsId'><a href="/admin/{{user_id}}/add">Add new dependent</a></h2>  </div>
+      <div class="leftnav new">
+        <i class="fa fa-plus fa-lg"></i>
+        <h2 class='dependentsId'><a href="/admin/{{user_id}}/contacts">Add/update contacts</a></h2>
+      </div>
     </div>
   </div>
+
 
   <div class="right">
     <div class="row">
@@ -67,7 +110,15 @@
 
     <div class="row">
       <!-- <section>
-        <button>Update</button>
-      </section> -->
-    </div>
+      <button>Update</button>
+    </section> -->
   </div>
+</div>
+
+<div class="row">
+  <section>
+    <button>Update</button>
+    <button>Delete</button>
+  </section>
+</div>
+</div>
