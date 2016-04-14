@@ -7,9 +7,10 @@ passport.serializeUser(function(user, done) {
   .where({google_id: user.id})
   .first()
   .then(function(user){
+    console.log(user);
     user.userinfo = {id: user.user_id};
     done(null, user.userinfo);
-  })
+    })
 });
 
 passport.deserializeUser(function(user, done) {
