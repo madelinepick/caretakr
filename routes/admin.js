@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('knex')(require('../knexfile')['development']);
+var knex = require('knex')(require('../knexfile')[process.env.DB_ENV]);
 var authorized = require('./oauth/authorize')
 
 
@@ -65,9 +65,18 @@ router.get('/:user_id/update/:dependents_id', function(req, res, next) {
           .first()
           .then(function(user_data){
           res.render('update', {
-            user: user_data,
             title1: data.title.titles[0],
+            title2: data.title.titles[1],
+            title3: data.title.titles[2],
+            title4: data.title.titles[3],
+
             body1: data.title.body[0],
+            body2: data.title.body[1],
+            body3: data.title.body[2],
+            body4: data.title.body[3],
+
+            user: user_data,
+
             dependent_data: data,
             dependents: even_more_data,
             user_id: req.params.user_id
@@ -94,8 +103,8 @@ router.post('/:user_id/update/:dependents_id', function(req, res, next) {
         contact_info_id: req.body.contact_info_id,
         user_id: req.params.user_id,
         title: {
-          titles: req.body.section1name,
-          body: req.body.section1
+          titles: req.body.title,
+          body: req.body.body
         }
       })
       .then(function() {

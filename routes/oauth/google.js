@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var GoogleStrategy = require('passport-google-oauth2').Strategy
 var passport = require('passport');
-var knex = require('knex')(require('../../knexfile')['development']);
+var knex = require('knex')(require('../../knexfile')[process.env.DB_ENV]);
 var globalId;
 passport.use(new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,

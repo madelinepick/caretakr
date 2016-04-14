@@ -1,56 +1,33 @@
 <div class="container-fluid">
   <div class="row">
-    <nav>
+    <nav class="header col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <img class="applogo" src="/images/CaretakrWhite.png" alt="" />
       <div>
         <div class="indexNav">
-          <a class="btn home-btn" href="/settings">Settings</a>
+          <a class="btn home-btn" href="/admin/{{user_id}}/settings">Settings</a>
           <a class="btn home-btn" href="/auth/logout">Logout</a>
         </div>
         <div class="circleimage">
-          <!-- eventually user image goes here  -->
-          <img src="http://image.shutterstock.com/z/stock-photo-young-man-making-a-funny-face-49678489.jpg" alt="" />
+          <img src="{{user.picture_url}}" alt="" />
         </div>
       </div>
     </nav>
   </div>
 </div>
 
-
-<nav class="desktop">
-  <a href="#">Desktop 1</a>
-  <a href="#">Desktop 2</a>
-  <a href="#">Desktop 3</a>
-  <a href="#">Desktop 4</a>
-</nav>
-
-<nav class="mobile">
-  <button>Toggle</button>
-  <div>
-    <div class="circleimage">
-      <img src="{{user.picture_url}}" alt="" />
-    </div>
-    <div class="navbar">
-      <a href="/admin/{{user_id}}/settings">Settings</a>
-      <a href="/auth/logout">Logout</a>
-    </div>
-    <a href="#">Mobile 1</a>
-    <a href="#">Mobile 2</a>
-    <a href="#">Mobile 3</a>
-    <a href="#">Mobile 4</a>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="mobileD col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <button></button>
+      <div>
+        <a class="mobileA" href="#">Mobile 1</a>
+        <a class="mobileA" href="#">Mobile 2</a>
+        <a class="mobileA" href="#">Mobile 3</a>
+        <a class="mobileA" href="#">Mobile 4</a>
+      </div>
+    </nav>
   </div>
-</nav>
-
-<article>
-  <h1>Basic Hamburger Menu</h1>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro quasi sint error perspiciatis quis rem nisi reiciendis doloribus cumque aliquid molestiae quos sed ex commodi ad eveniet asperiores distinctio vero.
-  </p>
-</article>
-
-
-
-
+</div>
 
 <div class="left">
   <div class="leftnav household">
@@ -75,14 +52,11 @@
     </div>
   </div>
 
-
   <div class="right">
     <div class="row">
       <h2>Welcome {{user_name}}!</h2>
     </div>
-
     <div class="row">
-
       <div class="list">
         <h3>Your Contact info</h3>
         {{#if user.phone_number}}
@@ -107,18 +81,9 @@
         <p>{{user.user_name}}</p>
       </div>
     </div>
-
     <div class="row">
       <!-- <section>
       <button>Update</button>
     </section> -->
   </div>
-</div>
-
-<div class="row">
-  <section>
-    <button>Update</button>
-    <button>Delete</button>
-  </section>
-</div>
 </div>
