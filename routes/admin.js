@@ -11,9 +11,16 @@ router.get('/:user_id/add/',  function(req, res, next) {
       user_id: req.params.user_id
     })
     .then(function(data) {
+      return knex('users')
+      .where({user_id: req.params.user_id})
+      .first()
+      .then(function(user_data){
+
       res.render('add', {
+        user: user_data,
         dependents: data,
         user_id: req.params.user_id
+      })
       })
     });
   }).catch(function() {
@@ -54,13 +61,20 @@ router.get('/:user_id/update/:dependents_id', function(req, res, next) {
         return knex('dependents')
         .where({ user_id: req.params.user_id })
         .then(function(even_more_data) {
+          return  knex('users')
+          .where({user_id: req.params.user_id})
+          .first()
+          .then(function(user_data){
+
           console.log(data.title.titles);
           res.render('update', {
+            user: user_data,
             titles: data.title.titles,
             bodies: data.title.body,
             dependent_data: data,
             dependents: even_more_data,
             user_id: req.params.user_id
+          })
           });
         });
       });
@@ -106,9 +120,23 @@ router.get('/:user_id/home', function(req, res, next) {
     return knex('dependents')
     .where({ user_id: req.params.user_id })
     .then(function(data) {
+      return knex('users')
+      .where({user_id: req.params.user_id})
+      .first()
+      .then(function(user_data){
+        return knex('contact_info')
+        .where({user_id: req.params.user_id})
+        .first()
+        .then(function(contact_info_data){
+          console.log(user_data)
       res.render('home', {
+        contact_info: contact_info_data,
+        user: user_data,
+        user_name: user_data.user_name.substring(0, user_data.user_name.indexOf("@")),
         dependents: data,
         user_id: req.params.user_id
+      })
+      })
       });
     })
   }).catch(function() {
@@ -140,7 +168,6 @@ router.get('/:user_id/contacts', function(req, res, next) {
             })
           })
         }).catch(function() {
-          console.log('error');
           res.redirect('/')
         })
       })
@@ -169,9 +196,9 @@ router.post('/:user_id/contacts', function(req, res, next){
   })
 
   router.get('/:user_id/dependents/:dependents_id', function(req, res, next){
+    authorized.fun(req).then(function(){
     return knex('dependents')
     .where({user_id: req.params.user_id})
-    .first()
     .then(function(data) {
       return knex('dependents')
       .where({dependents_id: req.params.dependents_id})
@@ -185,8 +212,6 @@ router.post('/:user_id/contacts', function(req, res, next){
           .where({user_id: req.params.user_id})
           .first()
           .then(function(user_data){
-
-console.log(data);
         res.render('dependents', {
           contact_info: contact_info_data,
           user: user_data,
@@ -198,6 +223,44 @@ console.log(data);
         })
       })
     });
+  }).catch(function() {
+    res.redirect('/');
   })
+})
+
+  router.get('/:user_id/settings', function(req, res, next){
+    authorized.fun(req).then(function(){
+    return knex('users')
+    .where({user_id: req.params.user_id})
+    .first()
+    .then(function(user_data){
+      return knex('dependents')
+      .where({user_id: req.params.user_id})
+      .then(function(dependent_data){
+      res.render('settings', {
+        user: user_data,
+        dependents: dependent_data,
+        user_id: req.params.user_id
+      })
+      })
+    })
+  }).catch(function() {
+    res.redirect('/');
+  })
+})
+
+  router.post('/:user_id/settings', function(req, res, next){
+    authorized.fun(req).then(function(){
+    return knex('users')
+    .where({user_id: req.params.user_id})
+    .first()
+    .update({picture_url: req.body.picture_url})
+    .then(function(){
+      res.redirect('/admin/' + req.params.user_id + '/home')
+    })
+  }).catch(function() {
+    res.redirect('/');
+  })
+})
 
 module.exports = router;

@@ -4,10 +4,10 @@
   <div>
     <div class="circleimage">
       <!-- eventually user image goes here  -->
-      <img src="http://image.shutterstock.com/z/stock-photo-young-man-making-a-funny-face-49678489.jpg" alt="" />
+      <img src="{{user.picture_url}}" alt="" />
     </div>
     <div class="navbar">
-      <a href="/settings">Settings</a>
+      <a href="/admin/{{user_id}}/settings">Settings</a>
       <a href="/logout">Logout</a>
     </div>
   </div>
@@ -19,7 +19,10 @@
   </div>
   {{#dependents}}
   <div class="leftnav">
-    <h2 class='dependentsId'><a href="/admin/{{user_id}}/dependents/{{dependents_id}}">{{dependent_name}}</a></h2>
+    <h2 class='dependentsId'><a href="/admin/{{user_id}}/dependents/{{dependents_id}}">{{dependent_name}}</a>
+      <div class="circleimage2">
+    <img src="{{picture_url}}" alt="" />
+  </div></h2>
   </div>
   {{/dependents}}
 

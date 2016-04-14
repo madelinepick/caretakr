@@ -22,7 +22,7 @@ router.post('/login', function(req, res, next) {
 router.post('/signup', function(req, res, next) {
   var hash = bcrypt.hashSync(req.body.password, 8);
   knex('users')
-  .insert({'user_name': req.body.username.toLowerCase(), 'bcrypt_hash': hash})
+  .insert({'user_name': req.body.username.toLowerCase(), 'bcrypt_hash': hash, 'picture_url': req.body.picture_url})
   .then(function(response){
     res.redirect('/');
   })
