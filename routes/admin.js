@@ -77,9 +77,9 @@ router.get('/:user_id/update/:dependents_id', function(req, res, next) {
         })
       });
     })
-    // .catch(function() {
-    //   res.redirect('/');
-    // })
+    .catch(function() {
+      res.redirect('/');
+    })
   });
 
 router.post('/:user_id/update/:dependents_id', function(req, res, next) {
@@ -105,9 +105,9 @@ router.post('/:user_id/update/:dependents_id', function(req, res, next) {
       })
     })
   })
-  // .catch(function() {
-  //   res.redirect('/');
-  // })
+  .catch(function() {
+    res.redirect('/');
+  })
 });
 
 router.post('/:user_id/delete/:dependents_id', function(req, res, next) {
@@ -136,14 +136,14 @@ router.get('/:user_id/home', function(req, res, next) {
         .where({user_id: req.params.user_id})
         .first()
         .then(function(contact_info_data){
-      res.render('home', {
-        contact_info: contact_info_data,
-        user: user_data,
-        user_name: user_data.user_name.substring(0, user_data.user_name.indexOf("@")),
-        dependents: data,
-        user_id: req.params.user_id
-      })
-      })
+          res.render('home', {
+            contact_info: contact_info_data,
+            user: user_data,
+            user_name: user_data.user_name.substring(0, user_data.user_name.indexOf("@")),
+            dependents: data,
+            user_id: req.params.user_id
+          })
+        })
       });
     })
   }).catch(function() {
@@ -226,9 +226,9 @@ router.post('/:user_id/contacts', function(req, res, next){
       })
     });
   })
-  // .catch(function() {
-  //   res.redirect('/');
-  // })
+  .catch(function() {
+    res.redirect('/');
+  })
 })
 
   router.get('/:user_id/settings', function(req, res, next){
