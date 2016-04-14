@@ -1,15 +1,51 @@
-<nav>
-  <img class="applogo" src="/images/CaretakrWhite.png" alt="" />
-  <div>
-    <div class="circleimage">
-      <img src="{{user.picture_url}}" alt="" />
-    </div>
-    <div class="navbar">
-      <a href="/admin/{{user_id}}/settings">Settings</a>
-      <a href="/auth/logout">Logout</a>
-    </div>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="header col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <img class="applogo" src="/images/CaretakrWhite.png" alt="" />
+      <div>
+        <div class="indexNav">
+          <a class="btn home-btn" href="/admin/{{user_id}}/settings">Settings</a>
+          <a class="btn home-btn" href="/auth/logout">Logout</a>
+        </div>
+        <div class="circleimage">
+          <img src="{{user.picture_url}}" alt="" />
+        </div>
+      </div>
+    </nav>
   </div>
-</nav>
+</div>
+
+<div class="container-fluid hamburger">
+  <div class="row">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        {{#dependents}}
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/admin/{{user_id}}/dependents/{{dependents_id}}">{{dependent_name}}</a>
+            </li>
+            <li>
+              <a href="/admin/{{user_id}}/add">Add new dependent</a>
+            </li>
+            <li>
+              <a href="/admin/{{user_id}}/contacts">Add/update contacts</a>
+            </li>
+          </ul>
+        </div>
+          {{/dependents}}
+      </div>
+    </nav>
+  </div>
+</div>
 
 <div class="left">
   <div class="leftnav household">
