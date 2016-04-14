@@ -41,11 +41,8 @@ router.post('/:user_id/add/', function(req, res, next) {
         titles: req.body.title,
         body: req.body.body
       }
-
-
     }).then(function() {
       res.redirect('/admin/' + req.params.user_id + '/home')
-
     })
   }).catch(function() {
     res.redirect('/');
@@ -65,8 +62,6 @@ router.get('/:user_id/update/:dependents_id', function(req, res, next) {
           .where({user_id: req.params.user_id})
           .first()
           .then(function(user_data){
-
-          console.log(data.title.titles);
           res.render('update', {
             user: user_data,
             titles: data.title.titles,
@@ -78,28 +73,41 @@ router.get('/:user_id/update/:dependents_id', function(req, res, next) {
           });
         });
       });
-    }).catch(function() {
-      res.redirect('/');
     })
+    // .catch(function() {
+    //   res.redirect('/');
+    // })
   });
 
 router.post('/:user_id/update/:dependents_id', function(req, res, next) {
   authorized.fun(req).then(function(){
     return knex('dependents')
     .where({ dependents_id: req.params.dependents_id })
-    .update({
-      dependent_name: req.body.dependent_name,
-      being_type: req.body.being_type,
-      picture_url: req.body.picture_url,
-      contact_info_id: req.body.contact_info_id,
-      user_id: req.params.user_id
-    }).then(function() {
-      console.log(req.body.dependent_name)
-      res.redirect('/admin/' + req.params.user_id + '/home')
+    .del()
+    .then(function(){
+      return knex('dependents')
+      .insert({
+        dependent_name: req.body.dependent_name,
+        being_type: req.body.being_type,
+        picture_url: req.body.picture_url,
+        contact_info_id: req.body.contact_info_id,
+        user_id: req.params.user_id,
+        title: {
+          titles: req.body.section1name,
+          body: req.body.section1
+        }
+      })
+      .then(function() {
+        console.log('update');
+        console.log(req.body.section1)
+        console.log(req.body.section1name)
+        res.redirect('/admin/' + req.params.user_id + '/home')
+      })
     })
-  }).catch(function() {
-    res.redirect('/');
   })
+  //.catch(function() {
+  //   res.redirect('/');
+  // })
 });
 
 router.post('/:user_id/delete/:dependents_id', function(req, res, next) {
@@ -128,7 +136,6 @@ router.get('/:user_id/home', function(req, res, next) {
         .where({user_id: req.params.user_id})
         .first()
         .then(function(contact_info_data){
-          console.log(user_data)
       res.render('home', {
         contact_info: contact_info_data,
         user: user_data,
@@ -157,7 +164,6 @@ router.get('/:user_id/contacts', function(req, res, next) {
               .where({ user_id: req.params.user_id })
               .first()
               .then(function(even_more_data){
-                console.log(more_data);
                 res.render('contact', {
                   contact_info: even_more_data,
                   user: more_data,
