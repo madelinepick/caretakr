@@ -46,27 +46,10 @@
       <input type="text" name="dependent_name" value="{{dependent_data.dependent_name}}"><br>
       <label for="picture_url">Link to a photo (ex:https://myphoto.com)</label><br>
       <input type="text" name="picture_url" value="{{dependent_data.picture_url}}"><br>
-
-      <label for="section1name">Rule Name:</label>
-      <input type="text" name="title" value="{{title1}}"><br>
-      <label for="section1">Content</label><br>
-      <textarea name="body" rows="4" cols="40">{{body1}}</textarea><br>
-      <label for="section1name">Rule Name:</label>
-      <input type="text" name="title" value="{{title2}}"><br>
-      <label for="section1">Content</label><br>
-      <textarea name="body" rows="4" cols="40">{{body2}}</textarea><br>
-      <label for="section1name">Rule Name:</label>
-      <input type="text" name="title" value="{{title3}}"><br>
-      <label for="section1">Content</label><br>
-      <textarea name="body" rows="4" cols="40">{{body3}}</textarea><br>
-      <label for="section1name">Rule Name:</label>
-      <input type="text" name="title" value="{{title4}}"><br>
-      <label for="section1">Content</label><br>
-      <textarea name="body" rows="4" cols="40">{{body4}}</textarea><br>
       {{#each rules}}
       {{#if title}}
-        <h1>{{title}}</h1>
-        <h4>{{body}}</h4>
+        <input type="text" name="title" value="{{title}}"><br>
+        <textarea name="body" rows="4" cols="40">{{body}}</textarea><br>
         {{/if}}
       {{/each}}
 
@@ -74,7 +57,7 @@
 
     </form>
     <form class="add" action="/admin/{{user_id}}/delete/{{dependent_id}}" method="post">
-        <input type="submit" value="Delete {{dependent_data.dependent_name}}" id="delete_button">
+      <input type="submit" value="Delete {{dependent_data.dependent_name}}" id="delete_button">
     </form>
   </div>
 </div>
