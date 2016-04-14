@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcrypt');
-var knex = require('knex')(require('../knexfile')['development']);
+var knex = require('knex')(require('../knexfile')[process.env.DB_ENV]);
 
 
 router.post('/login', function(req, res, next) {

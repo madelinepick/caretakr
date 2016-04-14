@@ -47,7 +47,8 @@ body {
 .mainContent {
   background-color: #B2DC80;
   height: 500px;
-  overflow: auto;
+  display: block;
+  padding-bottom: 20px;
 }
 
 .signup{
@@ -60,7 +61,6 @@ body {
   background-color: white;
   padding: 15px 15px;
   margin-top: 50px;
-  border: 1px solid black;
 }
 
 .login {
@@ -75,7 +75,6 @@ body {
   margin-top: 50px;
   margin-right: 30px;
   margin-left: 15px;
-  border: 1px solid black;
 }
 
 .g-btn {
@@ -106,18 +105,12 @@ input[type="text"], input[type="password"] {
   transition: all 1s ease 0s;
 }
 
-form > input[type='submit'], .row > section > button{
-  border-color: #333;
-  color: #333;
-  margin-left: 0px;
-}
 
 footer {
   background-color: rgb(68, 68, 68);
   padding: 1px;
   height: 100px;
   text-align: center;
-  margin-bottom: 0px;
 }
 
 footer > h5 {
