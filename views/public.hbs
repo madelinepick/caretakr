@@ -1,17 +1,3 @@
-<nav>
-  <img class="applogo" src="/images/CaretakrWhite.png" alt="" />
-  <div>
-    <div class="circleimage">
-      <!-- eventually user image goes here  -->
-      <img src="http://image.shutterstock.com/z/stock-photo-young-man-making-a-funny-face-49678489.jpg" alt="" />
-    </div>
-    <div class="navbar">
-      <a href="/settings">Settings</a>
-      <a href="/auth/logout">Logout</a>
-    </div>
-  </div>
-</nav>
-
 <div class="left">
   <div class="leftnav household">
     <h3>{{user_name}}'s Household</h3>
@@ -22,14 +8,6 @@
     <h2 class='dependentsId'><a href="/{{user_id}}/public/{{dependents_id}}">{{dependent_name}}</a></h2>
   </div>
   {{/dependents}}
-<div class="leftnav new">
-  <i class="fa fa-plus fa-lg"></i>
-  <h2 class='dependentsId'><a href="/admin/{{user_id}}/add">Add new dependent</a></h2>  </div>
-  <div class="leftnav new">
-    <i class="fa fa-plus fa-lg"></i>
-    <h2 class='dependentsId'><a href="/admin/{{user_id}}/update">Add/update contacts</a></h2>
-
-  </div>
 </div>
 
 <div class="right">
@@ -67,10 +45,4 @@
     </div>
   </div>
 
-  <div class="row">
-    <section>
-      <button>Update</button>
-      <button>Delete</button>
-    </section>
-  </div>
 </div>
