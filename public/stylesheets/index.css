@@ -46,7 +46,8 @@ body {
 
 .mainContent {
   background-color: #B2DC80;
-  height: 400px;
+  height: 500px;
+  overflow: auto;
 }
 
 .signup{
