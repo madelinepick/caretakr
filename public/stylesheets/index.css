@@ -47,7 +47,7 @@ body {
 .mainContent {
   background-color: #B2DC80;
   height: 500px;
-  overflow: auto;
+  display: block;
 }
 
 .signup{
@@ -106,18 +106,12 @@ input[type="text"], input[type="password"] {
   transition: all 1s ease 0s;
 }
 
-form > input[type='submit'], .row > section > button{
-  border-color: #333;
-  color: #333;
-  margin-left: 0px;
-}
 
 footer {
   background-color: rgb(68, 68, 68);
   padding: 1px;
   height: 100px;
   text-align: center;
-  margin-bottom: 0px;
 }
 
 footer > h5 {

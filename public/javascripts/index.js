@@ -4,4 +4,9 @@ $(function(){
     $('.login').show();
     $('.signup').hide();
   })
+  $('.signupswitch').on('click', function(){
+    console.log('working');
+    $('.signup').show();
+    $('.login').hide();
+  })
 })

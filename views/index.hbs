@@ -11,9 +11,9 @@
 </div>
 
 <div class="container-fluid mainContent">
-  <div class="row">
 
     <div class="signup col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <h2>Sign Up</h2>
       <form  action="auth/signup" method="post">
         <label for="username">Username</label><br>
         <input class="formputs" type="text" name="username"><br>
@@ -25,11 +25,12 @@
         <input class="formputs password" type="password" name="passwordcheck"><br>
         <input type="submit" value="Sign Up">
       </form>
-      <p>Already have an account</p>
-      <a href='#' class='loginswitch'>Login instead?</a href='#'>
+      <p>Already have an account?</p>
+      <a href='#' class='loginswitch'><p>Login instead</p></a>
     </div>
 
     <div class="login col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <h2>Log in</h2>
       <form action="/auth/login" method="post">
         <label for="username">Username</label><br>
         <input class="formputs" type="text" name="username"><br>
@@ -38,8 +39,9 @@
         <input type="submit" value="Log in">
         <a class="btn btn-danger text-center g-btn" href="/auth/google">Google+</a>
       </form>
+      <p>Don't have an account?</p>
+      <a href='#' class='signupswitch'><p>Sign up instead</p></a>
     </div>
-  </div>
 </div>
 
 <footer>
