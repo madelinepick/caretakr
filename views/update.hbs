@@ -52,11 +52,13 @@
         <textarea name="body" rows="4" cols="40">{{body}}</textarea><br>
         {{/if}}
       {{/each}}
+      <input type="hidden" name="title" value=""><br>
+      <input type="hidden" name="body" value=""cols="40"></input><br>
 
       <input type="submit" value="Update">
 
     </form>
-    <form class="add" action="/admin/{{user_id}}/delete/{{dependent_id}}" method="post">
+    <form class="add" action="/admin/{{user_id}}/delete/{{dependent_data.dependents_id}}" method="post">
       <input type="submit" value="Delete {{dependent_data.dependent_name}}" id="delete_button">
     </form>
   </div>

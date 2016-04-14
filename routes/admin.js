@@ -70,7 +70,7 @@ router.get('/:user_id/update/:dependents_id', function(req, res, next) {
           console.log(dependentsArray);
           res.render('update', {
             dependents: user_dependents,
-            dependent_id: specific_dependent.dependents_id,
+            dependent_data: specific_dependent,
             rules: dependentsArray,
             user_id: req.params.user_id
           })
@@ -104,9 +104,10 @@ router.post('/:user_id/update/:dependents_id', function(req, res, next) {
         res.redirect('/admin/' + req.params.user_id + '/home')
       })
     })
-  }).catch(function() {
-    res.redirect('/');
   })
+  // .catch(function() {
+  //   res.redirect('/');
+  // })
 });
 
 router.post('/:user_id/delete/:dependents_id', function(req, res, next) {
@@ -213,7 +214,7 @@ router.post('/:user_id/contacts', function(req, res, next){
         specific_dependent.title.titles.forEach(function(elem, index){
           dependentsArray.push({
                                 title: elem,
-                                body: specific_dependent.title.body[0]
+                                body: specific_dependent.title.body[index]
                               })
         })
         res.render('dependents', {
