@@ -64,7 +64,7 @@ router.get('/:user_id/update/:dependents_id', function(req, res, next) {
           specific_dependent.title.titles.forEach(function(elem, index){
             dependentsArray.push({
                                   title: elem,
-                                  body: specific_dependent.title.body[0]
+                                  body: specific_dependent.title.body[index]
                                 })
           })
           console.log(dependentsArray);
