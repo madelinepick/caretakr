@@ -29,7 +29,9 @@ router.get('/:user_id/add/',  function(req, res, next) {
 });
 
 router.post('/:user_id/add/', function(req, res, next) {
+
   authorized.fun(req).then(function(){
+
   return knex('dependents')
     .insert({
       dependent_name: req.body.dependent_name,
@@ -69,8 +71,8 @@ router.get('/:user_id/update/:dependents_id', function(req, res, next) {
           console.log(data.title.titles);
           res.render('update', {
             user: user_data,
-            titles: data.title.titles,
-            bodies: data.title.body,
+            title1: data.title.titles[0],
+            body1: data.title.body[0],
             dependent_data: data,
             dependents: even_more_data,
             user_id: req.params.user_id
@@ -217,6 +219,16 @@ router.post('/:user_id/contacts', function(req, res, next){
           user: user_data,
           dependents: data,
           rules: rules_data,
+          title1: rules_data.title.titles[0],
+          title2: rules_data.title.titles[1],
+          title3: rules_data.title.titles[2],
+          title4: rules_data.title.titles[3],
+
+          body1: rules_data.title.body[0],
+          body2: rules_data.title.body[1],
+          body3: rules_data.title.body[2],
+          body4: rules_data.title.body[3],
+
           user_id: req.params.user_id
         })
         })

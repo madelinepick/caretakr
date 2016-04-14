@@ -41,17 +41,38 @@
   <div class="row">
     <div class="list">
       <h3>Instructions</h3>
-      {{#rules.title}}
-      {{#titles}}
-      <h1>{{this}}</h1>
-      {{/titles}}
-{{#body}}
+      {{#if title1}}
+      <h1>{{title1}}</h1>
+      {{/if}}
+      {{#if body1}}
       <p>
-        {{this}}
+      {{body1}}
       </p>
-      {{/body}}
-      {{/rules.title}}
-
+      {{/if}}
+      {{#if title2}}
+      <h1>{{title2}}</h1>
+      {{/if}}
+      {{#if body2}}
+      <p>
+      {{body2}}
+      </p>
+      {{/if}}
+      {{#if title3}}
+      <h1>{{title3}}</h1>
+      {{/if}}
+      {{#if body3}}
+      <p>
+      {{body3}}
+      </p>
+      {{/if}}
+      {{#if title4}}
+      <h1>{{title4}}</h1>
+      {{/if}}
+      {{#if body4}}
+      <p>
+      {{body4}}
+      </p>
+      {{/if}}
     </div>
 
   <div class="row">
