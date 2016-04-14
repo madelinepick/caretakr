@@ -1,5 +1,7 @@
 $(function(){
   $('.loginswitch').on('click', function(){
-    alert('working');
+    console.log('working');
+    $('.login').show();
+    $('.signup').hide();
   })
-}())
+})
