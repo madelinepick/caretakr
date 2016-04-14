@@ -1,15 +1,19 @@
-<nav>
-  <img class="applogo" src="/images/CaretakrWhite.png" alt="" />
-  <div>
-    <div class="circleimage">
-      <img src="{{user.picture_url}}" alt="" />
-    </div>
-    <div class="navbar">
-      <a href="/admin/{{user_id}}/settings">Settings</a>
-      <a href="/auth/logout">Logout</a>
-    </div>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="header col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <img class="applogo" src="/images/CaretakrWhite.png" alt="" />
+      <div>
+        <div class="indexNav">
+          <a class="btn home-btn" href="/admin/{{user_id}}/settings">Settings</a>
+          <a class="btn home-btn" href="/auth/logout">Logout</a>
+        </div>
+        <div class="circleimage">
+          <img src="{{user.picture_url}}" alt="" />
+        </div>
+      </div>
+    </nav>
   </div>
-</nav>
+</div>
 
 <div class="left">
   <div class="leftnav household">
