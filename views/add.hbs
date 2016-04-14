@@ -47,31 +47,24 @@
 
 <div class="right">
   <div class="row">
-    <form class="add" action="/admin/{{user_id}}/add" method="post">
+    <form  class="add" action="/admin/{{user_id}}/add" method="post">
       <h3>Add a new dependent</h3>
       <label for="being_type">Type</label><br>
-      <input type="text" name="being_type" value=""> <br> 
+      <input type="text" name="being_type" value=""> <br>
       <label for="name">Name</label><br>
       <input type="text" name="dependent_name" value=""><br>
       <label for="picture_url">Link to a photo (ex:https://myphoto.com)</label><br>
       <input type="text" name="picture_url" value=""><br>
-      <label for="section1name">Rule Name:</label>
-      <input type="text" name="title" value=""><br>
-      <label for="section1">Content</label><br>
-      <textarea name="body" rows="4" cols="40"></textarea><br>
-      <label for="section2name">Rule Name:</label>
-      <input type="text" name="title" value=""><br>
-      <label for="section2">Content</label><br>
-      <textarea name="body" rows="4" cols="40"></textarea><br>
-      <label for="section3name">Rule Name:</label>
-      <input type="text" name="title" value=""><br>
-      <label for="section3">Content</label><br>
-      <textarea name="body" rows="4" cols="40"></textarea><br>
-      <label for="section4name">Rule Name:</label>
-      <input type="text" name="title" value=""><br>
-      <label for="section4">Content</label><br>
-      <textarea name="body" rows="4" cols="40"></textarea><br>
+      <div id="add_rules_form">
+        <label for="section1name">Rule Name:</label>
+        <input type="text" name="title" value=""><br>
+        <label for="section1">Content</label><br>
+        <textarea name="body" rows="4" cols="40"></textarea><br>
+      </div>
+      <input type="hidden" name="title" value=""><br>
+      <input type="hidden" name="body" value=""cols="40"></input><br>
       <input type="submit" value="Add">
+      <input id="add_rule" type="button" value="+">
     </form>
   </div>
 </div>

@@ -199,46 +199,33 @@ router.post('/:user_id/contacts', function(req, res, next){
   })
 
   router.get('/:user_id/dependents/:dependents_id', function(req, res, next){
+    var dependentsArray = []
     authorized.fun(req).then(function(){
     return knex('dependents')
     .where({user_id: req.params.user_id})
-    .then(function(data) {
+    .then(function(user_dependents){
       return knex('dependents')
       .where({dependents_id: req.params.dependents_id})
       .first()
-      .then(function(rules_data){
-        return knex('contact_info')
-        .where({user_id: req.params.user_id})
-        .first()
-        .then(function(contact_info_data){
-          return knex('users')
-          .where({user_id: req.params.user_id})
-          .first()
-          .then(function(user_data){
+      .then(function(specific_dependent){
+        specific_dependent.title.titles.forEach(function(elem, index){
+          dependentsArray.push({
+                                title: elem,
+                                body: specific_dependent.title.body[0]
+                              })
+        })
+        console.log(dependentsArray);
         res.render('dependents', {
-          contact_info: contact_info_data,
-          user: user_data,
-          dependents: data,
-          rules: rules_data,
-          title1: rules_data.title.titles[0],
-          title2: rules_data.title.titles[1],
-          title3: rules_data.title.titles[2],
-          title4: rules_data.title.titles[3],
-
-          body1: rules_data.title.body[0],
-          body2: rules_data.title.body[1],
-          body3: rules_data.title.body[2],
-          body4: rules_data.title.body[3],
-
+          dependents: user_dependents,
+          rules: dependentsArray,
           user_id: req.params.user_id
-        })
-        })
         })
       })
     });
-  }).catch(function() {
-    res.redirect('/');
   })
+  // .catch(function() {
+  //   res.redirect('/');
+  // })
 })
 
   router.get('/:user_id/settings', function(req, res, next){
