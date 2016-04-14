@@ -1,6 +1,6 @@
 var express = require('express');
 var passport = require('passport');
-var knex = require('knex')(require('../../knexfile')['development']);
+var knex = require('knex')(require('../../knexfile')[process.env.DB_ENV]);
 
 passport.serializeUser(function(user, done) {
   knex('users')
