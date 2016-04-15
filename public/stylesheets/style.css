@@ -105,6 +105,10 @@ input[type="text"], input[type="password"] {
   margin:3px 0px 15px 0px;
 }
 
+input[type="text"]{
+  padding-left: 3px;
+}
+
 input[type="text"], input[type="password"] {
   -webkit-transition: all 1s ease 0s;
   -moz-transition: all 1s ease 0s;
@@ -266,6 +270,7 @@ i{
 }
 textarea{
   margin-bottom: 20px;
+  padding-left: 3px;
 }
 
 footer {
