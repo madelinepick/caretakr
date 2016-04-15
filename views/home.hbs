@@ -72,7 +72,9 @@
     </div>
     <div class="row">
       <div class="list">
-        <h3>Your Contact info</h3>
+        <h3>Your Contact info</h3><br>
+        <h4>Here's a link to your public page to share</h4>
+        <p><a href="/{{user.user_id}}/public">https://caretakr.herokuapp.com/{{user.user_id}}/public</a></p><br>
         {{#if user.phone_number}}
         <h4>My Phone</h4>
         <p>{{user.phone_number}}</p>
@@ -93,11 +95,10 @@
         {{/if}}
         <h4>My Email</h4>
         <p>{{user.user_name}}</p>
+
       </div>
     </div>
     <div class="row">
-      <!-- <section>
-      <button>Update</button>
-    </section> -->
+
   </div>
 </div>
