@@ -80,7 +80,7 @@
       <input type="text" name="being_type" value="{{dependent_data.being_type}}"><br>
 
       <label for="name">Name</label><br>
-      <input type="text" name="dependent_name" value="{{dependent_data.dependent_name}}"><br>
+      <input type="text" name="dependent_name" value="{{dependent_data.dependent_name}}" required><br>
       <label for="picture_url">Link to a photo (ex:https://myphoto.com)</label><br>
       <input type="text" name="picture_url" value="{{dependent_data.picture_url}}"><br>
 
@@ -88,8 +88,8 @@
 
       {{#each rules}}
       {{#if title}}
-        <input type="text" name="title" value="{{title}}"><br>
-        <textarea name="body" rows="4" cols="40">{{body}}</textarea><br>
+        <input type="text" name="title" value="{{title}}" required><br>
+        <textarea name="body" rows="4" cols="40" required>{{body}}</textarea><br>
         {{/if}}
       {{/each}}
       <input type="hidden" name="title" value=""><br>
