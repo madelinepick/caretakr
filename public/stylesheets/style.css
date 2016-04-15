@@ -285,9 +285,11 @@ footer > h5 {
   font-weight: 300;
   text-transform: uppercase;
   text-align: right;
-  margin-top: 25px;
-  margin-right: 10px;
+  width: 250px;
+  float: right;
+  margin-right: 25px;
 }
+
 @media screen and (max-width: 500px){
   .mobile{
     width: 375px;

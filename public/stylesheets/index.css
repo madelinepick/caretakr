@@ -8,15 +8,6 @@ body {
   padding: 0;
 }
 
-.indexNav {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  text-transform: uppercase;
-  text-align: right;
-  margin-top: 25px;
-  margin-right: 10px;
-}
-
 .logo {
   display: block;
   margin-left: auto;
@@ -26,7 +17,7 @@ body {
   height: auto;
 }
 
-.hero{
+.hero {
   background-image: url('http://i.imgur.com/NyPBTKh.jpg');
   height: 400px;
   background-size: cover;

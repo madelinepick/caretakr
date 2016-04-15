@@ -5,16 +5,7 @@
 .header {
   background-color: #B2DC80;
   padding: 25px 0px;
-  height: 180px;
-}
-
-.indexNav {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  text-transform: uppercase;
-  text-align: right;
-  margin-top: 25px;
-  margin-right: 10px;
+  height: 120px;
 }
 
 .applogo{
