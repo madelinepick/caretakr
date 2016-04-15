@@ -24,7 +24,7 @@ router.post('/signup', function(req, res, next) {
   knex('users')
   .insert({'user_name': req.body.username.toLowerCase(), 'bcrypt_hash': hash, 'picture_url': req.body.picture_url})
   .then(function(response){
-    res.redirect('/');
+    res.redirect('/#login');
   })
 });
 
