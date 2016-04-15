@@ -1,48 +1,48 @@
 <div class="container-fluid">
   <div class="row">
-    <nav class="header col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <img class="applogo" src="/images/CaretakrWhite.png" alt="" />
+    <div class="hero col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <div class="indexNav">
-        <a class="btn home-btn" href="/admin/{{user_id}}/settings">Settings</a>
+        <a class="btn home-btn" href="/settings">Settings</a>
         <a class="btn home-btn" href="/auth/logout">Logout</a>
-        <img class="circleimage" src="{{user.picture_url}}" alt="" />
       </div>
-    </nav>
+      <img class="logo mobile" src="/images/CaretakrWhite.png" alt=""/>
+    </div>
   </div>
 </div>
 
+
 <div class="container-fluid mainContent">
 
-    <div class="signup col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <h2>Sign Up</h2>
-      <form  action="auth/signup" method="post">
-        <label for="username">Username</label><br>
-        <input class="formputs" type="text" name="username"><br>
-        <label for="user image">Link to a photo (ex:https://myphoto.com)</label><br>
-        <input class="formputs" type="text" name="picture_url"><br>
-        <label for="password">Password</label><br>
-        <input class="formputs password" type="password" name="password"><br>
-        <label for="passwordcheck">Re-type Password</label><br>
-        <input class="formputs password" type="password" name="passwordcheck"><br>
-        <input type="submit" value="Sign Up">
-      </form>
-      <p>Already have an account?</p>
-      <a href='#' class='loginswitch'><p>Login instead</p></a>
-    </div>
+  <div class="signup col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <h2>Sign Up</h2>
+    <form  action="auth/signup" method="post">
+      <label for="username">Username</label><br>
+      <input class="formputs" type="text" name="username"><br>
+      <label for="user image">Link to a photo (ex:https://myphoto.com)</label><br>
+      <input class="formputs" type="text" name="picture_url"><br>
+      <label for="password">Password</label><br>
+      <input class="formputs password" type="password" name="password"><br>
+      <label for="passwordcheck">Re-type Password</label><br>
+      <input class="formputs password" type="password" name="passwordcheck"><br>
+      <input type="submit" value="Sign Up">
+    </form>
+    <p>Already have an account?</p>
+    <a href='#' class='loginswitch'><p>Login instead</p></a>
+  </div>
 
-    <div class="login col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <h2>Log in</h2>
-      <form action="/auth/login" method="post">
-        <label for="username">Username</label><br>
-        <input class="formputs" type="text" name="username"><br>
-        <label for="password">Password</label><br>
-        <input class="formputs password" type="password" name="password"><br>
-        <input type="submit" value="Log in">
-        <a class="btn btn-danger text-center g-btn" href="/auth/google">Google+</a>
-      </form>
-      <p>Don't have an account?</p>
-      <a href='#' class='signupswitch'><p>Sign up instead</p></a>
-    </div>
+  <div class="login col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <h2>Log in</h2>
+    <form action="/auth/login" method="post">
+      <label for="username">Username</label><br>
+      <input class="formputs" type="text" name="username"><br>
+      <label for="password">Password</label><br>
+      <input class="formputs password" type="password" name="password"><br>
+      <input type="submit" value="Log in">
+      <a class="btn btn-danger text-center g-btn" href="/auth/google">Google+</a>
+    </form>
+    <p>Don't have an account?</p>
+    <a href='#' class='signupswitch'><p>Sign up instead</p></a>
+  </div>
 </div>
 
 <footer>

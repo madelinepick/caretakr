@@ -55,7 +55,7 @@
     display: none;
   }
   .header {
-    height: 90px;
+    display: none;
   }
   /*.mobileD {
     display: block;
