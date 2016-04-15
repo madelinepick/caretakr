@@ -36,7 +36,7 @@ router.get('/:user_id/public/:dependents_id', function(req, res, next){
                             })
       })
       res.render('public_dependents', {
-        user_name: user_data.user_name.substring(0, user_data.user_name.indexOf("@")),
+        user_name: user_data.user_name.charAt(0).toUpperCase() + user_data.user_name.slice(1),
         user: user_data,
         contact_info: contact_info_data,
         dependents: user_dependents,
