@@ -92,12 +92,12 @@
         <textarea name="body" rows="4" cols="40">{{body}}</textarea><br>
         {{/if}}
       {{/each}}
+      <div id="add_rules_form"></div>
+      <input id="add_rule" type="button" value="+">
+      <input id="subtract_rule" type="button" value="-">
       <input type="hidden" name="title" value=""><br>
       <input type="hidden" name="body" value=""cols="40"></input><br>
-
-
       <input type="submit" value="Update">
-
     </form>
     <form class="add" action="/admin/{{user_id}}/delete/{{dependent_data.dependents_id}}" method="post">
       <input type="submit" value="Delete {{dependent_data.dependent_name}}" id="delete_button">
