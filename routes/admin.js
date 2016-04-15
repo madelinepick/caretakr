@@ -204,6 +204,11 @@ router.post('/:user_id/contacts', function(req, res, next){
   router.get('/:user_id/dependents/:dependents_id', function(req, res, next){
     var dependentsArray = []
     authorized.fun(req).then(function(){
+    return knex ('users')
+    .where({user_id: req.params.user_id})
+    .first()
+    .then(function(user_data){
+
     return knex('dependents')
     .where({user_id: req.params.user_id})
     .then(function(user_dependents){
@@ -221,6 +226,7 @@ router.post('/:user_id/contacts', function(req, res, next){
           dependents: user_dependents,
           dependent_id: specific_dependent.dependents_id,
           rules: dependentsArray,
+          user: user_data,
           user_id: req.params.user_id
         })
       })
@@ -229,6 +235,7 @@ router.post('/:user_id/contacts', function(req, res, next){
   .catch(function() {
     res.redirect('/');
   })
+})
 })
 
   router.get('/:user_id/settings', function(req, res, next){
