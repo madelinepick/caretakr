@@ -88,19 +88,21 @@
       <label for="being_type">Type</label><br>
       <input type="text" name="being_type" value=""> <br>
       <label for="name">Name</label><br>
-      <input type="text" name="dependent_name" value=""><br>
+      <input type="text" name="dependent_name" value="" required><br>
       <label for="picture_url">Link to a photo (ex:https://myphoto.com)</label><br>
       <input type="text" name="picture_url" value=""><br>
       <div id="add_rules_form">
         <label for="section1name">Rule Name:</label>
-        <input type="text" name="title" value=""><br>
+        <input type="text" name="title" value="" required><br>
         <label for="section1">Content</label><br>
-        <textarea name="body" rows="4" cols="40"></textarea><br>
+        <textarea name="body" rows="4" cols="40" required></textarea><br>
       </div>
+      <input id="add_rule" type="button" value="+">
+      <input id="subtract_rule" type="button" value="-">
       <input type="hidden" name="title" value=""><br>
       <input type="hidden" name="body" value=""cols="40"></input><br>
       <input type="submit" value="Add">
-      <input id="add_rule" type="button" value="+">
+
     </form>
   </div>
 </div>

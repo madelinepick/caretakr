@@ -75,7 +75,7 @@
     <h2 class='dependentsId'><a href="/admin/{{user_id}}/add">Add new dependent</a></h2>  </div>
   <div class="leftnav new">
     <i class="fa fa-plus fa-lg"></i>
-    <h2 class='dependentsId'><a href="/admin/{{user_id}}/update">Add/update contacts</a></h2>
+    <h2 class='dependentsId'><a href="/admin/{{user_id}}/contacts">Add/update contacts</a></h2>
 
   </div>
 </div>
@@ -85,7 +85,8 @@
     <form class="add" action="/admin/{{user.user_id}}/contacts" method="post">
       <h3>Contact Info</h3>
       <label for="cellphone">My Cell Phone</label><br>
-      <input type="text" name="phone_number" value="{{user.phone_number}}"><br>
+      <input type="text" name="phone_number" value="{{user.phone_number}}" pattern="^\d{3}-\d{3}-\d{4}$"
+" required><br>
       <label for="email">My Email</label><br>
       <input type="text" name="email" value="{{user.user_name}}"><br>
       <label for="doctor">Doctor's Phone (child)</label><br>
