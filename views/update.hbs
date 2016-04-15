@@ -23,12 +23,13 @@
             <span class="icon-bar"></span>
           </button>
         </div>
-        {{#dependents}}
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
+            {{#each dependents}}
             <li>
-              <a href="/admin/{{user_id}}/dependents/{{dependents_id}}">{{dependent_name}}</a>
+              <a href="/admin/{{this.user_id}}/dependents/{{this.dependents_id}}">{{this.dependent_name}}</a>
             </li>
+            {{/each}}
             <li>
               <a href="/admin/{{user_id}}/add">Add new dependent</a>
             </li>
@@ -43,7 +44,6 @@
             </li>
           </ul>
         </div>
-          {{/dependents}}
       </div>
     </nav>
   </div>

@@ -23,12 +23,13 @@
             <span class="icon-bar"></span>
           </button>
         </div>
-        {{#dependents}}
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
+            {{#each dependents}}
             <li>
-              <a href="/admin/{{user_id}}/dependents/{{dependents_id}}">{{dependent_name}}</a>
+              <a href="/admin/{{this.user_id}}/dependents/{{this.dependents_id}}">{{this.dependent_name}}</a>
             </li>
+            {{/each}}
             <li>
               <a href="/admin/{{user_id}}/add">Add new dependent</a>
             </li>
@@ -43,7 +44,6 @@
             </li>
           </ul>
         </div>
-          {{/dependents}}
       </div>
     </nav>
   </div>
@@ -59,20 +59,20 @@
     <!-- Eventually users name as an hbs param goes below -->
     <h2 class='dependentsId'><a href="/admin/{{user_id}}/dependents/{{dependents_id}}">{{dependent_name}}</a>
       <div class="circleimage2">
-    <img src="{{picture_url}}" alt="" />
-  </div></h2>
-  </div>
-  {{/dependents}}
-  <!-- <div class="leftnav">
+        <img src="{{picture_url}}" alt="" />
+      </div></h2>
+    </div>
+    {{/dependents}}
+    <!-- <div class="leftnav">
     <h2 class='dependentsId'>Jane</h2>
   </div>
   <div class="leftnav">
-    <h2 class='dependentsId'>Scruffles</h2>
-    <i class="fa fa-paw fa-2x"></i>
-  </div> -->
-  <div class="leftnav new">
-    <i class="fa fa-plus fa-lg"></i>
-    <h2 class='dependentsId'><a href="/admin/{{user_id}}/add">Add new dependent</a></h2>  </div>
+  <h2 class='dependentsId'>Scruffles</h2>
+  <i class="fa fa-paw fa-2x"></i>
+</div> -->
+<div class="leftnav new">
+  <i class="fa fa-plus fa-lg"></i>
+  <h2 class='dependentsId'><a href="/admin/{{user_id}}/add">Add new dependent</a></h2>  </div>
   <div class="leftnav new">
     <i class="fa fa-plus fa-lg"></i>
     <h2 class='dependentsId'><a href="/admin/{{user_id}}/contacts">Add/update contacts</a></h2>
