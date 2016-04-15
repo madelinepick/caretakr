@@ -34,6 +34,7 @@ body {
   font-weight: 500;
   font-size: 12px;
   margin-left: 20px;
+  margin-top: 35px;
 }
 
 .hero > section{
@@ -293,7 +294,7 @@ footer > h5 {
   font-weight: 300;
   text-transform: uppercase;
   text-align: right;
-  width: 250px;
+  width: 400px;
   float: right;
   margin-right: 25px;
   margin-top: 0px;
