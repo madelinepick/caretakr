@@ -54,6 +54,11 @@ router.post('/:user_id/add/', function(req, res, next) {
 router.get('/:user_id/update/:dependents_id', function(req, res, next) {
   var dependentsArray = []
   authorized.fun(req).then(function(){
+    return knex('users')
+    .where({user_id: req.params.user_id})
+    .first()
+    .then(function(user_data){
+
     return knex('dependents')
     .where({user_id: req.params.user_id})
     .then(function(user_dependents){
@@ -69,6 +74,7 @@ router.get('/:user_id/update/:dependents_id', function(req, res, next) {
           })
           console.log(dependentsArray);
           res.render('update', {
+            user: user_data,
             dependents: user_dependents,
             dependent_data: specific_dependent,
             rules: dependentsArray,
@@ -81,6 +87,7 @@ router.get('/:user_id/update/:dependents_id', function(req, res, next) {
       res.redirect('/');
     })
   });
+})
 
 router.post('/:user_id/update/:dependents_id', function(req, res, next) {
   authorized.fun(req).then(function(){
