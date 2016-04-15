@@ -81,8 +81,8 @@
       <h3>Instructions</h3>
       {{#each rules}}
       {{#if title}}
-        <h1>{{title}}</h1>
-        <h4>{{body}}</h4>
+        <h4>{{title}}</h4>
+        <p>{{body}}</p>
         {{/if}}
       {{/each}}
       <button class='update'><a href="/admin/{{user_id}}/update/{{dependent_id}}">Update {{rules.dependent_name}}</a></button>

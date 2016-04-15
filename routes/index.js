@@ -67,11 +67,10 @@ router.get('/:user_id/public/', function(req, res, next){
         .first()
         .then(function(user_data){
 
-
       res.render('public', {
         contact_info: contact_info_data,
         user: user_data,
-        user_name: user_data.user_name.substring(0, user_data.user_name.indexOf("@")),
+        user_name: user_data.user_name.charAt(0).toUpperCase() + user_data.user_name.slice(1),
         dependents: data,
         rules: rules_data,
         user_id: req.params.user_id
