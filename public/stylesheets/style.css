@@ -144,6 +144,9 @@ form >label{
   max-height: 80px;
   width: auto;
 }
+img.circleimage{
+  margin-right: 4.5em;
+}
 }
 /*oh god, please somebody help me with the styling*/
 .circleimage2 {
@@ -288,7 +291,7 @@ footer > h5 {
   width: 250px;
   float: right;
   margin-right: 25px;
-  margin-top: 25px;
+  margin-top: 0px;
 }
 
 @media screen and (max-width: 500px){
