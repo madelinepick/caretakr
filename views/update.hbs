@@ -88,15 +88,19 @@
 
       {{#each rules}}
       {{#if title}}
+      <label for="section1name">Rule Name:</label>
         <input type="text" name="title" value="{{title}}" required><br>
+        <label for="section1">Content</label><br>
         <textarea name="body" rows="4" cols="40" required>{{body}}</textarea><br>
         {{/if}}
       {{/each}}
+      <div id="add_rules_form"></div>
       <input type="hidden" name="title" value=""><br>
       <input type="hidden" name="body" value=""cols="40"></input><br>
 
 
       <input type="submit" value="Update">
+      <input id="add_rule" type="button" value="+">
 
     </form>
     <form class="add" action="/admin/{{user_id}}/delete/{{dependent_data.dependents_id}}" method="post">
