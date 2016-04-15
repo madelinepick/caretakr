@@ -1,12 +1,13 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="hero col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <nav class="header col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <img class="applogo" src="/images/CaretakrWhite.png" alt="" />
       <div class="indexNav">
-        <a class="btn home-btn" href="/settings">Settings</a>
+        <a class="btn home-btn" href="/admin/{{user_id}}/settings">Settings</a>
         <a class="btn home-btn" href="/auth/logout">Logout</a>
+        <img class="circleimage" src="{{user.picture_url}}" alt="" />
       </div>
-      <img class="logo mobile" src="/images/CaretakrWhite.png" alt=""/>
-    </div>
+    </nav>
   </div>
 </div>
 
