@@ -190,14 +190,15 @@ router.post('/:user_id/contacts', function(req, res, next){
   authorized.fun(req).then(function(){
     return knex('users')
     .where({ user_id: req.params.user_id })
-    .update({ phone_number: req.body.phone_number })
+    .update({ phone_number: req.body.phone_number,
+              email: req.body.email})
     .then(function(){
       return knex('contact_info')
         .insert({
           user_id: req.params.user_id,
           dependent_friend_number: req.body.dependent_friend_number,
           doctor_number: req.body.doctor_number,
-          vet_number: req.body.vet_number
+          vet_number: req.body.vet_number,
         })
         .then(function(){
           res.redirect('/admin/' + req.params.user_id + '/home')

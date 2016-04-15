@@ -37,8 +37,10 @@
       <h4>Neighbor's Phone</h4>
       <p>{{contact_info.dependent_friend_number}}</p>
       {{/if}}
+      {{#if user.email}}
       <h4>{{user_name}}'s Email</h4>
-      <p>{{user.user_name}}</p>
+      <p>{{user.email}}</p>
+      {{/if}}
     </div>
   </div>
 </div>
