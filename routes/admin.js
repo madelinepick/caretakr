@@ -146,7 +146,7 @@ router.get('/:user_id/home', function(req, res, next) {
           res.render('home', {
             contact_info: contact_info_data,
             user: user_data,
-            user_name: user_data.user_name.substring(0, user_data.user_name.indexOf("@")),
+            user_name: user_data.user_name.substring(0, user_data.user_name.indexOf("@")) || user_data.user_name,
             dependents: data,
             user_id: req.params.user_id
           })
