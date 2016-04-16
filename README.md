@@ -1,4 +1,7 @@
 # caretakr
+
+Created by Madeline Pickering, Alan Taylor, Max Sturges, and Nathan Reginato
+
 [Heroku site](https://caretakr.herokuapp.com/) - warning, Heroku can be slow.
 
 Caretakr is a web app built for households that regularly use babysitters or petsitters. The app allows those households to create online instructions and rules for their children and pets that can be easily shared with caretakers with a single link.
@@ -10,3 +13,19 @@ As a babysitter or petsitter, users can read the lists of instructions created b
 **Technologies**
 
 This app is built using express, hbs templating, and postgres/knex on the back end. We've used oauth and passport to make another login option, harnessed bootstrap functionality for some styling, and deployed to heroku.
+
+**.env Setup**
+
+GOOGLE_CLIENT_ID=[your client id]
+
+GOOGLE_CLIENT_SECRET=[your client secret]
+
+HOST=[your local host]
+
+KEY1=[key one]
+
+KEY2=[key two]
+
+DATABASE_URL=[database url]
+
+DB_ENV=[probably development]
