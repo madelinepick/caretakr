@@ -36,7 +36,7 @@ router.get('/:user_id/public/:dependents_id', function(req, res, next){
                             })
       })
       res.render('public_dependents', {
-        user_name: user_data.user_name.charAt(0).toUpperCase() + user_data.user_name.slice(1),
+        user_name: ((user_data.user_name.substring(0, user_data.user_name.indexOf("@"))).charAt(0).toUpperCase() + (user_data.user_name.substring(0, user_data.user_name.indexOf("@"))).slice(1)) || (user_data.user_name.charAt(0).toUpperCase() + user_data.user_name.slice(1)),
         user: user_data,
         contact_info: contact_info_data,
         dependents: user_dependents,
@@ -70,7 +70,7 @@ router.get('/:user_id/public/', function(req, res, next){
       res.render('public', {
         contact_info: contact_info_data,
         user: user_data,
-        user_name: user_data.user_name.charAt(0).toUpperCase() + user_data.user_name.slice(1),
+        user_name: ((user_data.user_name.substring(0, user_data.user_name.indexOf("@"))).charAt(0).toUpperCase() + (user_data.user_name.substring(0, user_data.user_name.indexOf("@"))).slice(1)) || (user_data.user_name.charAt(0).toUpperCase() + user_data.user_name.slice(1)),
         dependents: data,
         rules: rules_data,
         user_id: req.params.user_id
